@@ -62,20 +62,24 @@
           <th class="p-3 text-left">Product</th>
           <th class="p-3 text-center">Qty</th>
           <th class="p-3 text-center">Cartoon Size</th>
-          <th class="p-3 text-center">Price (₹)</th>
-          <th class="p-3 text-center">Total (₹)</th>
+          <th class="p-2 text-center">Pieces</th>
+          <th class="p-3 text-center">Price/Piece</th>
+          <th class="p-3 text-center">Total</th>
         </tr>
       </thead>
       <tbody>
         <% let grand = 0; %>
         <% (order.items || []).forEach(it => { 
+          const pieces = it.qty * it.cartoon_size;
              const total = it.price * it.qty * (it.cartoon_size || 1);
              grand += total;
         %>
+        
         <tr class="border-b hover:bg-gray-50">
           <td class="p-2"><%= it.categoryName %></td>
           <td class="p-3 text-center"><%= it.qty %></td>
           <td class="p-3 text-center"><%= it.cartoon_size %></td>
+          <td class="p-2 text-center font-semibold text-purple-700"><%= pieces %></td>
           <td class="p-3 text-center">₹<%= it.price %></td>
           <td class="p-3 text-center font-semibold">₹<%= total %></td>
         </tr>
