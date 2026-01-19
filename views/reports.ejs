@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Reports</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 p-6">
+
+  <div class="max-w-7xl mx-auto">
+
+    <h1 class="text-3xl font-bold mb-4">📊 Business Reports</h1>
+    <a href="/admin/dashboard" class="text-blue-600 underline">← Back to Dashboard</a>
+
+    <!-- SALES SUMMARY -->
+    <h2 class="text-xl font-semibold mt-6 mb-3">💰 Sales Summary</h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-4 gap-4">
+
+      <div class="p-4 bg-white shadow rounded-xl">
+        <p class="text-gray-500 text-sm">Today's Revenue</p>
+        <p class="text-2xl font-bold text-green-600">₹<%= todayRevenue %></p>
+      </div>
+
+      <div class="p-4 bg-white shadow rounded-xl">
+        <p class="text-gray-500 text-sm">Monthly Sales</p>
+        <p class="text-2xl font-bold text-blue-600">₹<%= totalSales %></p>
+      </div>
+
+      <div class="p-4 bg-white shadow rounded-xl">
+        <p class="text-gray-500 text-sm">Total Orders</p>
+        <p class="text-2xl font-bold"><%= totalOrders %></p>
+      </div>
+
+      <div class="p-4 bg-white shadow rounded-xl">
+        <p class="text-gray-500 text-sm">Items Sold</p>
+        <p class="text-2xl font-bold"><%= totalItemsSold %></p>
+      </div>
+
+    </div>
+
+    <!-- ORDER STATUS SUMMARY -->
+    <h2 class="text-xl font-semibold mt-10 mb-3">🧾 Orders Summary</h2>
+    <div class="bg-white p-4 rounded-xl shadow grid grid-cols-1 sm:grid-cols-3 gap-4">
+
+      <div class="p-3 border-l-4 border-yellow-500">
+        <p class="text-gray-500">Pending</p>
+        <p class="text-2xl font-bold">
+          <%= orders.filter(o => o.status === "Pending").length %>
+        </p>
+      </div>
+
+      <div class="p-3 border-l-4 border-green-500">
+        <p class="text-gray-500">Completed</p>
+        <p class="text-2xl font-bold">
+          <%= orders.filter(o => o.status === "Completed").length %>
+        </p>
+      </div>
+
+      <div class="p-3 border-l-4 border-red-500">
+        <p class="text-gray-500">Cancelled</p>
+        <p class="text-2xl font-bold">
+          <%= orders.filter(o => o.status === "Cancelled").length %>
+        </p>
+      </div>
+
+    </div>
+
+    <!-- BEST SELLING PRODUCTS -->
+    <h2 class="text-xl font-semibold mt-10 mb-3">🏆 Best Selling Products</h2>
+
+    <div class="bg-white p-4 rounded-xl shadow">
+      <table class="w-full">
+        <tr class="bg-gray-200 font-semibold">
+          <th class="p-3">Product</th>
+          <th class="p-3">Qty Sold</th>
+          <th class="p-3">Revenue</th>
+        </tr>
+
+        <% bestSelling.forEach(item => { %>
+          <tr class="border-b">
+            <td class="p-3"><%= item[0] %></td>
+            <td class="p-3"><%= item[1].qty %></td>
+            <td class="p-3">₹<%= item[1].total %></td>
+          </tr>
+        <% }) %>
+      </table>
+    </div>
+
+    <!-- FULL SALES REPORT TABLE -->
+    <h2 class="text-xl font-semibold mt-10 mb-3">📘 Full Sales Report</h2>
+
+    <div class="bg-white p-4 rounded-xl shadow overflow-auto">
+      <table class="w-full text-sm">
+        <tr class="bg-gray-200">
+          <th class="p-3">Order ID</th>
+          <th class="p-3">Customer</th>
+          <th class="p-3">Total (₹)</th>
+          <th class="p-3">Date</th>
+        </tr>
+
+        <% orders.forEach(o => { %>
+          <tr class="border-b">
+            <td class="p-3"><%= o.id %></td>
+            <td class="p-3"><%= o.customer %></td>
+            <td class="p-3 font-bold">₹<%= o.total %></td>
+            <td class="p-3"><%= o.date %></td>
+          </tr>
+        <% }) %>
+      </table>
+    </div>
+
+    <!-- LOW STOCK -->
+    <h2 class="text-xl font-semibold mt-10 mb-3">⚠️ Low Stock Products</h2>
+    <div class="bg-white p-4 rounded-xl shadow">
+      <table class="w-full">
+        <tr class="bg-gray-200">
+          <th class="p-3">Product</th>
+          <th class="p-3">Stock Left</th>
+        </tr>
+
+        <% if (lowStock.length === 0) { %>
+          <tr><td class="p-3 text-gray-500" colspan="2">No low stock products</td></tr>
+        <% } else { %>
+
+        <% lowStock.forEach(p => { %>
+        <tr class="border-b">
+          <td class="p-3 font-semibold"><%= p.name %></td>
+          <td class="p-3 text-red-600 font-bold"><%= p.stock %></td>
+        </tr>
+        <% }) %>
+        <% } %>
+      </table>
+    </div>
+
+    <!-- EXPORT BUTTONS -->
+    <div class="flex justify-end gap-4 mt-8">
+      <button onclick="window.print()"
+        class="bg-blue-600 text-white px-6 py-2 rounded-lg shadow hover:bg-blue-700">
+        🖨 Print PDF
+      </button>
+
+      <a href="/admin/reports/export-csv"
+        class="bg-green-600 text-white px-6 py-2 rounded-lg shadow hover:bg-green-700">
+        📥 Export CSV
+      </a>
+    </div>
+
+  </div>
+
+</body>
+</html>

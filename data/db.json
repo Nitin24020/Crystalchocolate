@@ -1,0 +1,1258 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Chocolates"
+    },
+    {
+      "id": 2,
+      "name": "Gift Packs"
+    },
+    {
+      "id": 3,
+      "name": "Candy"
+    },
+    {
+      "id": 4,
+      "name": "Premium Box"
+    },
+    {
+      "id": 5,
+      "name": "Jelly Box"
+    },
+    {
+      "id": 6,
+      "name": "Eclair Toffee Packet"
+    },
+    {
+      "id": 7,
+      "name": "Candy Packet"
+    },
+    {
+      "id": 8,
+      "name": "Toffee Box"
+    },
+    {
+      "id": 9,
+      "name": "Small Gift Box"
+    },
+    {
+      "id": 10,
+      "name": "jelly"
+    },
+    {
+      "id": 11,
+      "name": "Premium Toffee Packet"
+    },
+    {
+      "id": 12,
+      "name": "Toffee Box"
+    },
+    {
+      "id": 13,
+      "name": "Premium Toffee Box"
+    }
+  ],
+  "products": [
+    {
+      "id": 6,
+      "name": "Dry Fru Nuts Toffee",
+      "category": 4,
+      "description": "Flavour\tBlueberry, Strawberry\r\nType\tToffee\r\nShape\tRectangular\r\nPackaging Type\tBox, Carton\r\nColor\tBrown\r\nBrand\tCrystal",
+      "price": 55,
+      "cartoon_size": 36,
+      "image": "/media/mkZb3COBf.webp",
+      "stock": 50
+    },
+    {
+      "id": 7,
+      "name": "Green Apple Flavored Candy",
+      "category": 3,
+      "description": "Packaging Type : Packet\r\nCountry of Origin : Made in India\r\nShape :Round\r\nType : Hard Candy\r\nColor : Green",
+      "price": 50,
+      "cartoon_size": 20,
+      "image": "/media/nR58NJu2N.webp",
+      "stock": 0
+    },
+    {
+      "id": 8,
+      "name": "Mango Flavored Candy",
+      "category": 3,
+      "description": "Packaging Size : 300 gm\r\nShape : Round\r\nType : Toffee\r\nPackaging Type : Packet",
+      "price": 50,
+      "cartoon_size": 20,
+      "image": "/media/qUwHezWZn.webp",
+      "stock": 16
+    },
+    {
+      "id": 9,
+      "name": "Lemao Flavour Candy",
+      "category": 3,
+      "description": "Candy Type : Hard Candy\r\nShape : Round\r\nPackaging Type : Packet\r\nFlavour : Lemao\r\nCountry of Origin : Made in India",
+      "price": 50,
+      "cartoon_size": 20,
+      "image": "/media/1eZDPQ7No.webp",
+      "stock": 9
+    },
+    {
+      "id": 10,
+      "name": "Imli Flavour Candy",
+      "category": 7,
+      "description": "Blank",
+      "price": 50,
+      "cartoon_size": 20,
+      "image": "/media/placeholder-product.png",
+      "stock": 8
+    },
+    {
+      "id": 11,
+      "name": "Imli Jelly",
+      "category": 5,
+      "description": "",
+      "price": 40,
+      "cartoon_size": 36,
+      "image": "/media/X9ITY376J.png",
+      "stock": 10
+    },
+    {
+      "id": 12,
+      "name": "Guava Jelly",
+      "category": 5,
+      "description": "",
+      "price": 40,
+      "cartoon_size": 36,
+      "image": "/media/u523s2RGY.png",
+      "stock": 10
+    },
+    {
+      "id": 13,
+      "name": "Strawberry Jelly",
+      "category": 5,
+      "description": "",
+      "price": 40,
+      "cartoon_size": 36,
+      "image": "/media/McLSZg3V9.png",
+      "stock": 10
+    },
+    {
+      "id": 14,
+      "name": "Melon Jelly",
+      "category": 5,
+      "description": "",
+      "price": 40,
+      "cartoon_size": 36,
+      "image": "/media/j1XEJMVa1.png",
+      "stock": 10
+    },
+    {
+      "id": 15,
+      "name": "Honey Eclair Toffee",
+      "category": 9,
+      "description": "",
+      "price": 60,
+      "cartoon_size": 20,
+      "image": "/media/zcZfXMvYH.png",
+      "stock": 5
+    },
+    {
+      "id": 16,
+      "name": "Coconut Eclair Toffee",
+      "category": 9,
+      "description": "",
+      "price": 60,
+      "cartoon_size": 20,
+      "image": "/media/1QqVpBol-.png",
+      "stock": 5
+    },
+    {
+      "id": 17,
+      "name": "Milk Eclair Toffee",
+      "category": 9,
+      "description": "",
+      "price": 60,
+      "cartoon_size": 20,
+      "image": "/media/8cn-GCCpa.png",
+      "stock": 5
+    },
+    {
+      "id": 18,
+      "name": "Coconut Butter Toffee Box",
+      "category": 8,
+      "description": "",
+      "price": 45,
+      "cartoon_size": 36,
+      "image": "/media/MpSJJASLY.png",
+      "stock": 20
+    },
+    {
+      "id": 19,
+      "name": "Kaju Butter Toffee",
+      "category": 8,
+      "description": "",
+      "price": 45,
+      "cartoon_size": 36,
+      "image": "/media/LDf5u3UN-.png",
+      "stock": 20
+    },
+    {
+      "id": 20,
+      "name": "Fruit Toffee Box",
+      "category": 8,
+      "description": "",
+      "price": 45,
+      "cartoon_size": 36,
+      "image": "/media/39PXnERZW.png",
+      "stock": 20
+    },
+    {
+      "id": 21,
+      "name": "Almond Toffee Box",
+      "category": 8,
+      "description": "",
+      "price": 45,
+      "cartoon_size": 36,
+      "image": "/media/7cCeNguob.png",
+      "stock": 20
+    }
+  ],
+  "banners": [
+    {
+      "id": 1,
+      "title": "Welcome",
+      "image": "/media/placeholder-banner.png"
+    }
+  ],
+  "orders": [
+    {
+      "id": "HzxUzsbxC",
+      "customer": "Nitin",
+      "email": "nitinambhani2423@gmail.com",
+      "phone": "9712155265",
+      "address": "Anand",
+      "items": [
+        {
+          "productId": 1,
+          "name": "Melted Milk Chocolate",
+          "qty": 1,
+          "price": 120,
+          "total": 120
+        }
+      ],
+      "total": 120,
+      "date": "2025-11-17T16:38:25.982Z",
+      "status": "Completed"
+    },
+    {
+      "id": "RbzGoLzga",
+      "customer": "Candy",
+      "email": "nitinambhani2423@gmail.com",
+      "phone": "9712155265",
+      "address": "anand",
+      "items": [
+        {
+          "productId": 1,
+          "name": "Melted Milk Chocolate",
+          "qty": 2,
+          "price": 120,
+          "total": 240
+        }
+      ],
+      "total": 240,
+      "date": "2025-11-20T06:33:07.595Z",
+      "status": "Completed"
+    },
+    {
+      "id": "Pgnv_hiTT",
+      "customer": "Nitin",
+      "email": "nitinambhani2423@gmail.com",
+      "phone": "9712155265",
+      "address": "anand",
+      "items": [
+        {
+          "productId": 1,
+          "name": "Melted Milk Chocolate",
+          "qty": 1,
+          "price": 120,
+          "total": 120
+        }
+      ],
+      "total": 120,
+      "date": "2025-11-20T06:44:27.940Z",
+      "status": "Completed"
+    },
+    {
+      "id": "-oLsIUAo4",
+      "customer": "Nitin",
+      "email": "nitinambhani2423@gmail.com",
+      "phone": "9712155265",
+      "address": "amand",
+      "items": [
+        {
+          "productId": 2,
+          "name": "Dark Chocolate Box",
+          "qty": 1,
+          "price": 250,
+          "total": 250
+        }
+      ],
+      "total": 250,
+      "date": "2025-11-20T06:45:56.068Z",
+      "status": "Completed"
+    },
+    {
+      "id": "UqBg9bwhW",
+      "customer": "Nitin",
+      "email": "nitinambhani2423@gmail.com",
+      "phone": "9712155265",
+      "address": "annad",
+      "items": [
+        {
+          "productId": 3,
+          "name": "Honey Eclair Toffee",
+          "qty": 1,
+          "price": 60,
+          "total": 60
+        }
+      ],
+      "total": 60,
+      "date": "2025-11-20T07:10:52.429Z"
+    },
+    {
+      "id": "8EIPC98lx",
+      "customer": "Nitin",
+      "email": "nitinambhani2423@gmail.com",
+      "phone": "9712155265",
+      "address": "Anand",
+      "items": [
+        {
+          "productId": 6,
+          "name": "Dry Fru Nuts Toffee",
+          "qty": 1,
+          "price": 50,
+          "total": 50
+        },
+        {
+          "productId": 7,
+          "name": "Strawberry Jelly",
+          "qty": 1,
+          "price": 60,
+          "total": 60
+        }
+      ],
+      "total": 110,
+      "date": "2025-11-23T16:52:42.519Z"
+    },
+    {
+      "id": "CDha3zGdj",
+      "customer": "Nitin",
+      "email": "nitinambhani2423@gmail.com",
+      "phone": "9712155265",
+      "address": "Anand",
+      "items": [
+        {
+          "productId": 3,
+          "name": "Honey Eclair Toffee",
+          "qty": 1,
+          "price": 60,
+          "total": 60
+        }
+      ],
+      "total": 60,
+      "date": "2025-11-23T16:53:14.749Z"
+    },
+    {
+      "id": "BcUfiu4_a",
+      "customer": "Nitin",
+      "email": "nitinambhani2423@gmail.com",
+      "phone": "9712155265",
+      "address": "Anand",
+      "items": [
+        {
+          "productId": 3,
+          "name": "Honey Eclair Toffee",
+          "qty": 1,
+          "price": 60,
+          "total": 60
+        }
+      ],
+      "total": 60,
+      "date": "2025-11-23T16:54:31.714Z"
+    },
+    {
+      "id": "Yyfka0eCp",
+      "customer": "Nitin",
+      "email": "nitinambhani2423@gmail.com",
+      "phone": "9712155265",
+      "address": "anand",
+      "items": [
+        {
+          "productId": 3,
+          "name": "Honey Eclair Toffee",
+          "qty": 2,
+          "price": 60,
+          "total": 120
+        }
+      ],
+      "total": 120,
+      "date": "2025-11-23T16:58:13.086Z"
+    },
+    {
+      "id": "TweS05evw",
+      "customer": "Nitin",
+      "email": "nitinambhani2423@gmail.com",
+      "phone": "9712155265",
+      "address": "anand",
+      "items": [
+        {
+          "productId": 4,
+          "name": "Green Apple Flavored Candy",
+          "qty": 1,
+          "price": 60,
+          "total": 60
+        }
+      ],
+      "total": 60,
+      "date": "2025-11-23T16:59:31.208Z",
+      "status": "Completed"
+    },
+    {
+      "id": "hod50zB2D",
+      "customer": "Nitin",
+      "email": "nitinambhani2423@gmail.com",
+      "phone": "9712155265",
+      "address": "Anand",
+      "items": [
+        {
+          "productId": 4,
+          "name": "Green Apple Flavored Candy",
+          "qty": 1,
+          "price": 60,
+          "total": 60
+        }
+      ],
+      "total": 60,
+      "date": "2025-11-23T17:01:39.763Z"
+    },
+    {
+      "id": "11w1H8dlb",
+      "customer": "Nitin",
+      "email": "nitinambhani2423@gmail.com",
+      "phone": "9712155265",
+      "address": "ahm",
+      "items": [
+        {
+          "productId": 7,
+          "name": "Strawberry Jelly",
+          "qty": 1,
+          "price": 60,
+          "total": 60
+        }
+      ],
+      "total": 60,
+      "date": "2025-11-23T17:02:29.745Z"
+    },
+    {
+      "id": "YRDMo1OL_",
+      "customer": "Nitin",
+      "email": "nitinambhani2423@gmail.com",
+      "phone": "9712155265",
+      "address": "anand",
+      "items": [
+        {
+          "productId": 4,
+          "name": "Green Apple Flavored Candy",
+          "qty": 1,
+          "price": 60,
+          "total": 60
+        }
+      ],
+      "total": 60,
+      "date": "2025-11-23T17:04:38.062Z",
+      "status": "Completed"
+    },
+    {
+      "id": "JWOLejtpI",
+      "customer": "nitin",
+      "phone": "9712155265",
+      "email": "nitin@gmail.com",
+      "address": "anand",
+      "items": [
+        {
+          "productId": 3,
+          "name": "Honey Eclair Toffee",
+          "qty": 1,
+          "price": 60,
+          "cartoon_size": 20,
+          "total": 1200
+        }
+      ],
+      "subtotal": 1200,
+      "delivery": 40,
+      "total": 1240,
+      "status": "Completed",
+      "date": "2025-11-25T06:38:29.202Z"
+    },
+    {
+      "id": "BKsb8SGDG",
+      "customer": "Nitin",
+      "email": "nitin@gmail.com",
+      "phone": "9712155265",
+      "address": "Anand",
+      "items": [
+        {
+          "productId": 6,
+          "name": "Dry Fru Nuts Toffee",
+          "cartoon_size": 36,
+          "qty": 1,
+          "price": 50,
+          "total": 1800
+        }
+      ],
+      "subtotal": 1800,
+      "delivery": 40,
+      "total": 1840,
+      "date": "2025-11-25T16:16:48.181Z",
+      "status": "Completed"
+    },
+    {
+      "id": "QV2JbF9ry",
+      "customer": "nitin",
+      "email": "nitin@gmail.com",
+      "phone": "9712155265",
+      "address": "Anand",
+      "items": [
+        {
+          "productId": 6,
+          "name": "Dry Fru Nuts Toffee",
+          "cartoon_size": 36,
+          "qty": 1,
+          "price": 55,
+          "total": 1980
+        }
+      ],
+      "subtotal": 1980,
+      "delivery": 40,
+      "total": 2020,
+      "date": "2025-12-02T07:11:42.001Z",
+      "status": "Pending"
+    },
+    {
+      "id": "YQ28snLCC",
+      "customer": "Meet",
+      "email": "meet",
+      "phone": "9712155265",
+      "address": "Anand",
+      "items": [
+        {
+          "productId": 7,
+          "name": "Green Apple Flavored Candy",
+          "qty": 2,
+          "cartoon_size": 40,
+          "price": 50,
+          "total": 2000
+        }
+      ],
+      "subtotal": 2000,
+      "delivery": 0,
+      "total": 2000,
+      "date": "2026-01-02T04:56:30.523Z",
+      "status": "Pending"
+    },
+    {
+      "id": "RgxXW3hqS",
+      "customer": "Nitin",
+      "email": "Nitin",
+      "phone": "97",
+      "address": "Anand",
+      "items": [
+        {
+          "productId": 6,
+          "name": "Dry Fru Nuts Toffee",
+          "qty": 2,
+          "cartoon_size": 72,
+          "price": 55,
+          "total": 3960
+        },
+        {
+          "productId": 7,
+          "name": "Green Apple Flavored Candy",
+          "qty": 1,
+          "cartoon_size": 20,
+          "price": 50,
+          "total": 1000
+        }
+      ],
+      "subtotal": 4960,
+      "delivery": 0,
+      "total": 4960,
+      "date": "2026-01-02T04:57:11.871Z",
+      "status": "Pending"
+    },
+    {
+      "id": "TsB85FD3g",
+      "customer": "Nitin",
+      "email": "nitinambhani2423@gmail.com",
+      "phone": "9712155265",
+      "address": "Anand",
+      "items": [
+        {
+          "productId": 7,
+          "name": "Green Apple Flavored Candy",
+          "qty": 2,
+          "cartoon_size": 20,
+          "price": 50,
+          "total": 2000
+        }
+      ],
+      "subtotal": 2000,
+      "total": 2000,
+      "date": "2026-01-02T05:55:38.340Z",
+      "status": "Pending"
+    },
+    {
+      "id": "BvYLz5oAB",
+      "customer": "Nitin",
+      "email": "nitinambhani2423@gmail.com",
+      "phone": "9712155265",
+      "address": "Anand",
+      "items": [
+        {
+          "productId": 6,
+          "name": "Dry Fru Nuts Toffee",
+          "qty": 1,
+          "cartoon_size": 36,
+          "price": 55,
+          "total": 1980
+        },
+        {
+          "productId": 7,
+          "name": "Green Apple Flavored Candy",
+          "qty": 2,
+          "cartoon_size": 20,
+          "price": 50,
+          "total": 2000
+        }
+      ],
+      "subtotal": 3980,
+      "total": 3980,
+      "date": "2026-01-02T07:23:57.884Z",
+      "status": "Pending"
+    },
+    {
+      "id": "7VOtDOIyx",
+      "customer": "@",
+      "phone": "",
+      "address": "",
+      "items": [
+        {
+          "productId": 7,
+          "name": "Green Apple Flavored Candy",
+          "qty": 4,
+          "cartoon_size": 20,
+          "price": 50,
+          "total": 4000
+        }
+      ],
+      "subtotal": 4000,
+      "total": 4000,
+      "date": "2026-01-05T05:20:24.202Z",
+      "status": "Pending"
+    },
+    {
+      "id": "QbHxNgFw1",
+      "customer": "Nitin",
+      "phone": "",
+      "address": "",
+      "items": [
+        {
+          "productId": 6,
+          "name": "Dry Fru Nuts Toffee",
+          "qty": 2,
+          "cartoon_size": 36,
+          "price": 55,
+          "total": 3960
+        }
+      ],
+      "subtotal": 3960,
+      "total": 3960,
+      "date": "2026-01-05T05:20:44.614Z",
+      "status": "Pending"
+    },
+    {
+      "id": "e63Hd5jD3",
+      "customer": "Nitin",
+      "phone": "9712155265@",
+      "address": "",
+      "items": [
+        {
+          "productId": 7,
+          "name": "Green Apple Flavored Candy",
+          "qty": 1,
+          "cartoon_size": 20,
+          "price": 50,
+          "total": 1000
+        }
+      ],
+      "subtotal": 1000,
+      "total": 1000,
+      "date": "2026-01-05T05:21:08.578Z",
+      "status": "Pending"
+    },
+    {
+      "id": "PzP62_UNR",
+      "customer": "Nitin",
+      "phone": "@",
+      "address": "An and",
+      "items": [
+        {
+          "productId": 7,
+          "name": "Green Apple Flavored Candy",
+          "qty": 1,
+          "cartoon_size": 20,
+          "price": 50,
+          "total": 1000
+        }
+      ],
+      "subtotal": 1000,
+      "total": 1000,
+      "date": "2026-01-05T05:27:34.295Z",
+      "status": "Pending"
+    },
+    {
+      "id": "WYmJRGPia",
+      "customer": "",
+      "phone": "",
+      "address": "",
+      "items": [
+        {
+          "productId": 6,
+          "name": "Dry Fru Nuts Toffee",
+          "qty": 1,
+          "cartoon_size": 36,
+          "price": 55,
+          "total": 1980
+        }
+      ],
+      "subtotal": 1980,
+      "total": 1980,
+      "date": "2026-01-05T05:28:30.913Z",
+      "status": "Pending"
+    },
+    {
+      "id": "P3_AAReeQ",
+      "customer": "",
+      "phone": "",
+      "address": "",
+      "items": [
+        {
+          "productId": 6,
+          "name": "Dry Fru Nuts Toffee",
+          "qty": 1,
+          "cartoon_size": 36,
+          "price": 55,
+          "total": 1980
+        }
+      ],
+      "subtotal": 1980,
+      "total": 1980,
+      "date": "2026-01-05T05:28:44.010Z",
+      "status": "Pending"
+    },
+    {
+      "id": "2K_Xm1kpc",
+      "customer": "Nitin",
+      "phone": "97121",
+      "address": "Anand",
+      "items": [
+        {
+          "productId": 7,
+          "name": "Green Apple Flavored Candy",
+          "qty": 2,
+          "cartoon_size": 20,
+          "price": 50,
+          "total": 2000
+        }
+      ],
+      "subtotal": 2000,
+      "total": 2000,
+      "date": "2026-01-05T05:30:16.499Z",
+      "status": "Pending"
+    },
+    {
+      "id": "iAENh-POE",
+      "customer": "Nitin",
+      "phone": "9712155265",
+      "address": "Anand, Gujarat",
+      "items": [
+        {
+          "productId": 7,
+          "name": "Green Apple Flavored Candy",
+          "qty": 1,
+          "cartoon_size": 20,
+          "price": 50,
+          "total": 1000
+        }
+      ],
+      "subtotal": 1000,
+      "total": 1000,
+      "date": "2026-01-05T05:35:14.950Z",
+      "status": "Pending"
+    },
+    {
+      "id": "WVghtEnrq",
+      "customer": "Anand",
+      "phone": "9712155265",
+      "items": [
+        {
+          "productId": 6,
+          "name": "Dry Fru Nuts Toffee",
+          "qty": 1,
+          "cartoon_size": 36,
+          "price": 55,
+          "total": 1980
+        }
+      ],
+      "subtotal": 1980,
+      "total": 1980,
+      "date": "2026-01-05T05:38:03.157Z",
+      "status": "Pending"
+    },
+    {
+      "id": "QG-3xO_sU",
+      "customer": "Nitin",
+      "phone": "9712155265",
+      "items": [
+        {
+          "productId": 7,
+          "name": "Green Apple Flavored Candy",
+          "qty": 1,
+          "cartoon_size": 20,
+          "price": 50,
+          "total": 1000
+        }
+      ],
+      "subtotal": 1000,
+      "total": 1000,
+      "date": "2026-01-05T05:54:22.852Z",
+      "status": "Pending"
+    },
+    {
+      "id": "ZWylHtLwY",
+      "customer": "Lalitkumar",
+      "phone": "9712155265",
+      "items": [
+        {
+          "productId": 6,
+          "name": "Dry Fru Nuts Toffee",
+          "qty": 1,
+          "cartoon_size": 36,
+          "price": 55,
+          "total": 1980
+        }
+      ],
+      "subtotal": 1980,
+      "total": 1980,
+      "date": "2026-01-05T06:01:48.110Z",
+      "status": "Pending"
+    },
+    {
+      "id": "x6QlKvmhn",
+      "customer": "",
+      "phone": "",
+      "items": [
+        {
+          "productId": 6,
+          "name": "Dry Fru Nuts Toffee",
+          "qty": 1,
+          "cartoon_size": 36,
+          "price": 55,
+          "total": 1980
+        }
+      ],
+      "subtotal": 1980,
+      "total": 1980,
+      "date": "2026-01-05T06:02:01.843Z",
+      "status": "Pending"
+    },
+    {
+      "id": "Xtui60H1_",
+      "customer": "",
+      "phone": "",
+      "items": [
+        {
+          "productId": 6,
+          "name": "Dry Fru Nuts Toffee",
+          "qty": 1,
+          "cartoon_size": 36,
+          "price": 55,
+          "total": 1980
+        }
+      ],
+      "subtotal": 1980,
+      "total": 1980,
+      "date": "2026-01-05T06:02:14.084Z",
+      "status": "Pending"
+    },
+    {
+      "id": "hGNog05KH",
+      "customer": "",
+      "phone": "",
+      "items": [
+        {
+          "productId": 6,
+          "name": "Dry Fru Nuts Toffee",
+          "qty": 1,
+          "cartoon_size": 36,
+          "price": 55,
+          "total": 1980
+        }
+      ],
+      "subtotal": 1980,
+      "total": 1980,
+      "date": "2026-01-05T06:07:54.828Z",
+      "status": "Pending"
+    },
+    {
+      "id": "jM59sf1NI",
+      "customer": "Nitin",
+      "phone": "9712155265",
+      "address": {
+        "pincode": "388001",
+        "city": "Anand",
+        "state": "Gujarat"
+      },
+      "items": [
+        {
+          "productId": 7,
+          "name": "Green Apple Flavored Candy",
+          "qty": 1,
+          "cartoon_size": 20,
+          "price": 50,
+          "total": 1000
+        }
+      ],
+      "subtotal": 1000,
+      "total": 1000,
+      "date": "2026-01-05T06:14:52.159Z",
+      "status": "Pending"
+    },
+    {
+      "id": "O73aiNaAI",
+      "customer": "Nitin",
+      "phone": "9712155265",
+      "address": {
+        "pincode": "403001",
+        "city": "North Goa",
+        "state": "Goa"
+      },
+      "items": [
+        {
+          "productId": 6,
+          "name": "Dry Fru Nuts Toffee",
+          "qty": 1,
+          "cartoon_size": 36,
+          "price": 55,
+          "total": 1980
+        },
+        {
+          "productId": 7,
+          "name": "Green Apple Flavored Candy",
+          "qty": 1,
+          "cartoon_size": 20,
+          "price": 50,
+          "total": 1000
+        }
+      ],
+      "subtotal": 2980,
+      "total": 2980,
+      "date": "2026-01-05T07:17:32.589Z",
+      "status": "Pending"
+    },
+    {
+      "id": "FHiQMB4OK",
+      "customer": "Nitin",
+      "phone": "9712155265",
+      "address": {
+        "pincode": "122001",
+        "city": "Gurgaon",
+        "state": "Haryana"
+      },
+      "items": [
+        {
+          "productId": 6,
+          "name": "Dry Fru Nuts Toffee",
+          "qty": 2,
+          "cartoon_size": 36,
+          "price": 55,
+          "total": 3960
+        },
+        {
+          "productId": 7,
+          "name": "Green Apple Flavored Candy",
+          "qty": 2,
+          "cartoon_size": 20,
+          "price": 50,
+          "total": 2000
+        }
+      ],
+      "subtotal": 5960,
+      "total": 5960,
+      "date": "2026-01-05T07:19:38.220Z",
+      "status": "Pending"
+    },
+    {
+      "id": "LrIDD9jQK",
+      "customer": "Mahavir Sales",
+      "phone": "9897668787",
+      "address": {
+        "pincode": "388001",
+        "city": "Anand",
+        "state": "Gujarat"
+      },
+      "items": [
+        {
+          "productId": 6,
+          "name": "Dry Fru Nuts Toffee",
+          "qty": 2,
+          "cartoon_size": 36,
+          "price": 55,
+          "total": 3960
+        }
+      ],
+      "subtotal": 3960,
+      "total": 3960,
+      "date": "2026-01-06T04:40:35.665Z",
+      "status": "Pending"
+    },
+    {
+      "id": "flo7ICj89",
+      "customer": "Nitin",
+      "phone": "9712155265",
+      "address": {
+        "pincode": "403001",
+        "city": "North Goa",
+        "state": "Goa"
+      },
+      "items": [
+        {
+          "productId": 7,
+          "name": "Green Apple Flavored Candy",
+          "qty": 1,
+          "cartoon_size": 20,
+          "price": 50,
+          "total": 1000
+        }
+      ],
+      "subtotal": 1000,
+      "total": 1000,
+      "date": "2026-01-09T04:14:53.873Z",
+      "status": "Pending"
+    },
+    {
+      "id": "-gT8EYxFT",
+      "customer": "Meet ",
+      "phone": "8141042063",
+      "address": {
+        "pincode": "388001",
+        "city": "Anand",
+        "state": "Gujarat"
+      },
+      "items": [
+        {
+          "productId": 6,
+          "name": "Dry Fru Nuts Toffee",
+          "qty": 1,
+          "cartoon_size": 36,
+          "price": 55,
+          "totalPieces": 36,
+          "total": 1980
+        }
+      ],
+      "subtotal": 1980,
+      "total": 1980,
+      "date": "2026-01-09T04:31:31.155Z",
+      "status": "Pending"
+    },
+    {
+      "id": "vDI6kFdSP",
+      "customer": "Nitin",
+      "phone": "8141042063",
+      "address": {
+        "pincode": "403001",
+        "city": "North Goa",
+        "state": "Goa"
+      },
+      "items": [
+        {
+          "productId": 10,
+          "name": "Imli Flavour Candy",
+          "qty": 1,
+          "cartoon_size": 20,
+          "price": 50,
+          "totalPieces": 20,
+          "total": 1000
+        }
+      ],
+      "subtotal": 1000,
+      "total": 1000,
+      "date": "2026-01-09T04:37:50.609Z",
+      "status": "Pending"
+    },
+    {
+      "id": "3eTUwG3vd",
+      "customer": "Mahavir Sales",
+      "phone": "8141042063",
+      "address": {
+        "pincode": "388001",
+        "city": "Anand",
+        "state": "Gujarat"
+      },
+      "items": [
+        {
+          "productId": 8,
+          "categoryId": 3,
+          "image": "/media/qUwHezWZn.webp",
+          "qty": 2,
+          "cartoon_size": 20,
+          "price": 50,
+          "totalPieces": 40,
+          "total": 2000
+        }
+      ],
+      "subtotal": 2000,
+      "total": 2000,
+      "date": "2026-01-09T05:19:50.465Z",
+      "status": "Pending"
+    },
+    {
+      "id": "_6ruaY3d2",
+      "customer": "Nitin",
+      "phone": "9712155265",
+      "address": {
+        "pincode": "110001",
+        "city": "Central Delhi",
+        "state": "Delhi"
+      },
+      "items": [
+        {
+          "productId": 10,
+          "categoryId": 7,
+          "image": "/media/placeholder-product.png",
+          "qty": 1,
+          "cartoon_size": 20,
+          "price": 50,
+          "totalPieces": 20,
+          "total": 1000
+        }
+      ],
+      "subtotal": 1000,
+      "total": 1000,
+      "date": "2026-01-09T05:45:06.842Z",
+      "status": "Pending"
+    },
+    {
+      "id": "0H7gAN2nF",
+      "customer": "Mahavir Sales",
+      "phone": "9897668787",
+      "address": {
+        "pincode": "388001",
+        "city": "Anand",
+        "state": "Gujarat"
+      },
+      "items": [
+        {
+          "productId": 9,
+          "categoryId": 3,
+          "image": "/media/1eZDPQ7No.webp",
+          "qty": 1,
+          "cartoon_size": 20,
+          "price": 50,
+          "totalPieces": 20,
+          "total": 1000
+        }
+      ],
+      "subtotal": 1000,
+      "total": 1000,
+      "date": "2026-01-09T05:49:20.082Z",
+      "status": "Pending"
+    },
+    {
+      "id": "a6joczs9Y",
+      "customer": "Mahavir Sales",
+      "phone": "9897668787",
+      "address": {
+        "pincode": "110001",
+        "city": "Central Delhi",
+        "state": "Delhi"
+      },
+      "items": [
+        {
+          "productId": 8,
+          "categoryId": 3,
+          "image": "/media/qUwHezWZn.webp",
+          "qty": 1,
+          "cartoon_size": 20,
+          "price": 50,
+          "totalPieces": 20,
+          "total": 1000
+        }
+      ],
+      "subtotal": 1000,
+      "total": 1000,
+      "date": "2026-01-09T06:19:28.160Z",
+      "status": "Pending"
+    },
+    {
+      "id": "_j_ZqBkKG",
+      "customer": "Shailesh",
+      "phone": "8382392492",
+      "address": {
+        "pincode": "388001",
+        "city": "Anand",
+        "state": "Gujarat"
+      },
+      "items": [
+        {
+          "productId": 6,
+          "categoryId": 4,
+          "image": "/media/mkZb3COBf.webp",
+          "qty": 1,
+          "cartoon_size": 36,
+          "price": 55,
+          "totalPieces": 36,
+          "total": 1980
+        }
+      ],
+      "subtotal": 1980,
+      "total": 1980,
+      "date": "2026-01-09T06:23:29.977Z",
+      "status": "Pending"
+    },
+    {
+      "id": "K-KHPpvfN",
+      "customer": "Nitin",
+      "phone": "8983728918",
+      "address": {
+        "pincode": "380015",
+        "city": "Ahmedabad",
+        "state": "Gujarat"
+      },
+      "items": [
+        {
+          "productId": 8,
+          "categoryId": 3,
+          "image": "/media/qUwHezWZn.webp",
+          "qty": 1,
+          "cartoon_size": 20,
+          "price": 50,
+          "totalPieces": 20,
+          "total": 1000
+        }
+      ],
+      "subtotal": 1000,
+      "total": 1000,
+      "date": "2026-01-12T07:04:46.511Z",
+      "status": "Pending"
+    }
+  ]
+}

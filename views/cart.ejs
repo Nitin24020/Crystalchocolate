@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Cart</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+  <div class="max-w-5xl mx-auto p-4">
+
+    <h1 class="text-2xl font-bold mb-4">🛒 Your Cart</h1>
+
+    <% if (items.length === 0) { %>
+
+      <div class="bg-white p-6 rounded shadow text-center">
+        <p>Your cart is empty.</p>
+        <a href="/products" class="text-blue-600 font-semibold underline">Shop Now</a>
+      </div>
+
+    <% } else { %>
+
+    <div class="bg-white p-4 rounded shadow mb-4 overflow-x-auto">
+
+      <table class="w-full border-collapse">
+        <thead>
+          <tr class="border-b font-semibold text-left">
+            <th class="py-2">Product</th>
+            <th class="py-2">Qty</th>
+            <th class="py-2">Cartoon Size</th>
+            <th class="py-2">Pieces</th>
+            <th class="py-2">Price / Piece</th>
+            <th class="py-2">Total</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <% items.forEach(it => { %>
+          <tr class="border-b">
+          
+            <!-- CATEGORY -->
+            <td class="py-3 flex items-center gap-3">
+              <img src="<%= it.image %>" class="w-12 h-12 rounded">
+              <span><%= it.categoryName %></span>
+            </td>
+          
+            <!-- QTY -->
+            <td class="py-3">
+              <div class="flex items-center gap-2">
+                <form method="post" action="/cart/dec/<%= it.categoryKey %>">
+                  <button class="px-3 bg-gray-300 rounded font-bold">−</button>
+                </form>
+          
+                <span class="font-semibold w-6 text-center"><%= it.qty %></span>
+          
+                <form method="post" action="/cart/inc/<%= it.categoryKey %>">
+                  <button class="px-3 bg-gray-300 rounded font-bold">+</button>
+                </form>
+              </div>
+            </td>
+          
+            <!-- CARTON SIZE -->
+            <td class="py-3 font-semibold text-blue-700">
+              <%= it.cartoon_size %>
+            </td>
+          
+            <!-- PIECES -->
+            <td class="py-3 font-semibold text-purple-700">
+              <%= it.totalPieces %>
+            </td>
+          
+            <!-- PRICE PER PIECE -->
+            <td class="py-3">
+              ₹ <%= it.price %>
+            </td>
+          
+            <!-- TOTAL -->
+            <td class="py-3 font-bold text-green-700">
+              ₹ <%= it.lineTotal %>
+            </td>
+          
+            <!-- REMOVE -->
+            <td>
+              <form method="post" action="/cart/remove/<%= it.categoryKey %>">
+                <button class="bg-red-500 text-white px-3 py-1 rounded">Remove</button>
+              </form>
+            </td>
+          
+          </tr>
+          <% }) %>
+          
+     
+        </tbody>
+      </table>
+
+      <!-- TOTALS -->
+      <div class="text-right mt-4 space-y-1">
+        <p class="font-semibold">Subtotal: ₹ <%= subtotal %></p>
+        <p class="text-xl font-bold">Payable: ₹ <%= total %></p>
+      </div>
+
+    </div>
+
+    
+
+ <!-- CUSTOMER DETAILS -->
+<div class="bg-white p-6 rounded-xl shadow mt-6">
+  <h2 class="text-lg font-bold mb-4 text-gray-800">👤 Customer Details</h2>
+
+  <form method="post" action="/place-order" onsubmit="return validateForm()" class="space-y-4">
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+      <!-- NAME -->
+      <div>
+        <label class="text-sm font-semibold">Name</label>
+        <input id="name" name="name"
+          class="border p-2 w-full rounded-lg"
+          placeholder="Enter name">
+        <p id="nameErr" class="text-red-600 text-xs mt-1 hidden"></p>
+      </div>
+      <br>
+      <br>
+
+    
+      <!-- PHONE -->
+      <div>
+        <label class="text-sm font-semibold">Phone</label>
+        <input id="phone" name="phone"
+          class="border p-2 w-full rounded-lg"
+          placeholder="10 digit mobile number">
+        <p id="phoneErr" class="text-red-600 text-xs mt-1 hidden"></p>
+      </div>
+
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+      <!-- PIN CODE -->
+<div>
+  <label class="text-sm font-semibold">PIN Code</label>
+  <input id="pincode" name="pincode"
+    class="border p-2 w-full rounded-lg transition"
+    placeholder="Enter 6-digit PIN code">
+  <p id="pinErr" class="text-red-600 text-xs mt-1 hidden"></p>
+</div>
+
+
+      <!-- CITY -->
+      <div>
+        <label class="text-sm font-semibold">City</label>
+        <input id="city" name="city"
+  class="border p-2 w-full rounded-lg bg-gray-100"
+  readonly>
+
+      </div>
+    
+      <!-- STATE -->
+      <div>
+        <label class="text-sm font-semibold">State</label>
+        <input id="state" name="state"
+        class="border p-2 w-full rounded-lg bg-gray-100"
+        readonly>
+
+      </div>
+    
+    </div>
+    
+
+    <button class="w-full bg-blue-600 text-white py-3 rounded-xl font-semibold">
+      🧾 Place Order
+    </button>
+
+  </form>
+</div>
+
+   
+
+<div class="flex justify-between mt-4">
+  <a href="/products" class="px-4 py-2 bg-gray-300 rounded">← Continue Shopping</a>
+
+  <form method="post" action="/cart/clear">
+    <button class="px-4 py-2 bg-red-600 text-white rounded">Clear Cart</button>
+  </form>
+</div>
+<% } %>
+</div>
+    
+<script>
+  function validateForm() {
+    console.log("VALIDATE CALLED");
+    let ok = true;
+  
+    const name = document.getElementById("name");
+    const phone = document.getElementById("phone");
+    const pin = document.getElementById("pincode");
+    const city = document.getElementById("city");
+    const state = document.getElementById("state");
+  
+    // reset
+    document.querySelectorAll("p[id$='Err']").forEach(e => e.classList.add("hidden"));
+    document.querySelectorAll("input").forEach(i =>
+      i.classList.remove("border-red-500", "border-green-500")
+    );
+  
+    // NAME
+    if (!/^[A-Za-z ]{3,}$/.test(name.value.trim())) {
+      showError(name, "nameErr", "Name must be at least 3 letters");
+      ok = false;
+    } else markValid(name);
+  
+    // PHONE
+    if (!/^[0-9]{10}$/.test(phone.value.trim())) {
+      showError(phone, "phoneErr", "Phone must be 10 digits");
+      ok = false;
+    } else markValid(phone);
+  
+    // PIN
+    if (!/^[0-9]{6}$/.test(pin.value.trim())) {
+      showError(pin, "pinErr", "Enter valid 6-digit PIN");
+      ok = false;
+    } else markValid(pin);
+  
+    // CITY (auto-filled)
+    if (city.value.trim() === "") {
+      showError(city, "cityErr", "City not detected from PIN");
+      ok = false;
+    } else markValid(city);
+  
+    // STATE (auto-filled)
+    if (state.value.trim() === "") {
+      showError(state, "pinErr", "State not detected");
+      ok = false;
+    } else markValid(state);
+  
+    return ok;
+  }
+  
+  function showError(input, errId, msg) {
+    input.classList.add("border-red-500");
+    const err = document.getElementById(errId);
+    err.innerText = msg;
+    err.classList.remove("hidden");
+  }
+  
+  function markValid(input) {
+    input.classList.add("border-green-500");
+  }
+  </script>
+  
+
+<script>
+  const pinInput = document.getElementById("pincode");
+  const cityInput = document.getElementById("city");
+  const stateInput = document.getElementById("state");
+  
+  pinInput.addEventListener("input", () => {
+    const pin = pinInput.value.trim();
+  
+    // reset
+    cityInput.value = "";
+    stateInput.value = "";
+  
+    if (!/^[0-9]{6}$/.test(pin)) return;
+  
+    fetch(`https://api.postalpincode.in/pincode/${pin}`)
+      .then(res => res.json())
+      .then(data => {
+        if (data[0].Status === "Success") {
+          const postOffice = data[0].PostOffice[0];
+  
+          cityInput.value = postOffice.District;
+          stateInput.value = postOffice.State;
+  
+          markValid(pinInput);
+          markValid(cityInput);
+          markValid(stateInput);
+        } else {
+          showError(pinInput, "pinErr", "Invalid PIN code");
+        }
+      })
+      .catch(() => {
+        showError(pinInput, "pinErr", "PIN lookup failed");
+      });
+  });
+  </script>
+  
+  
+  
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title><%= product.name %></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+
+  <div class="max-w-5xl mx-auto p-4">
+
+    <!-- Back button -->
+    <a href="/products" class="text-sm mb-4 inline-block hover:underline">← Back to products</a>
+
+    <div class="bg-white p-6 rounded-xl shadow-lg grid grid-cols-1 md:grid-cols-2 gap-8">
+
+      <!-- Product Image Section -->
+      <div class="flex flex-col gap-4">
+
+        <!-- Main Image -->
+        <div class="border rounded-lg overflow-hidden">
+          <img src="<%= product.image %>" class="w-full h-80 object-contain hover:scale-105 transition-transform" />
+        </div>
+
+        <% if (product.images && product.images.length > 1) { %>
+          <!-- Thumbnails -->
+          <div class="flex gap-3">
+            <% product.images.forEach(function(img) { %>
+              <img src="<%= img %>" class="w-16 h-16 border rounded object-cover hover:opacity-70 cursor-pointer" />
+            <% }) %>
+          </div>
+        <% } %>
+
+      </div>
+
+      <!-- Product Info Section -->
+      <div>
+
+        <h1 class="text-3xl font-bold"><%= product.name %></h1>
+
+        <!-- Stock badge -->
+        <p class="mt-2">
+          <% if (product.stock > 0) { %>
+            <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">In Stock</span>
+          <% } else { %>
+            <span class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm">Out of Stock</span>
+          <% } %>
+        </p>
+
+        <!-- Price -->
+        <p class="mt-4 font-bold text-3xl text-blue-600">
+          Rs. <%= product.price %>
+        </p>
+
+        <!-- Description -->
+        <p class="mt-4 text-gray-700 leading-relaxed">
+          <%= product.description %>
+        </p>
+
+        <!-- Quantity Selector -->
+        <form method="post" action="/add-to-cart/<%= product.id %>" class="mt-6">
+
+          <label class="font-semibold">Quantity</label>
+          <div class="flex items-center mt-1 w-32 border rounded overflow-hidden">
+
+            <button type="button" onclick="decQty()" class="w-10 bg-gray-200 py-2">-</button>
+            <input id="qty" name="qty" value="1" class="w-12 text-center outline-none" />
+            <button type="button" onclick="incQty()" class="w-10 bg-gray-200 py-2">+</button>
+
+          </div>
+
+          <!-- Buttons -->
+          <div class="flex flex-col gap-4 mt-6">
+
+            <!-- Normal Add to Cart -->
+            <button class="bg-green-600 text-white px-6 py-2 rounded-lg shadow hover:bg-green-700 transition">
+              Add to Cart
+            </button>
+          
+            <!-- FULL CARTOON BUTTON -->
+            <button id="fullCartoonBtn"
+              class="bg-orange-600 text-white px-6 py-2 rounded-lg shadow hover:bg-orange-700 transition font-semibold">
+              📦 Add Full Cartoon
+            </button>
+          
+            <!-- Buy Now -->
+            <a href="/buy-now/<%= product.id %>"
+              class="bg-blue-600 text-white px-6 py-2 rounded-lg shadow hover:bg-blue-700 transition text-center">
+              Buy Now
+            </a>
+          
+          </div>
+
+          </form>
+          
+
+        <!-- Extra Info -->
+        <div class="mt-8 space-y-3 text-gray-700">
+
+          <p class="flex items-center gap-2">
+            🚚 <span>Fast delivery available</span>
+          </p>
+
+          <p class="flex items-center gap-2">
+            🔄 <span>7-day easy return policy</span>
+          </p>
+
+          <p class="flex items-center gap-2">
+            🔒 <span>Secure checkout & safe payments</span>
+          </p>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Quantity Script -->
+  <script>
+    function incQty() {
+      let q = document.getElementById('qty');
+      q.value = parseInt(q.value) + 1;
+    }
+    function decQty() {
+      let q = document.getElementById('qty');
+      if (parseInt(q.value) > 1) q.value = parseInt(q.value) - 1;
+    }
+  </script>
+
+<script>
+  // FULL CARTOON BUTTON CLICK
+  const fullBtn = document.getElementById("fullCartoonBtn");
+
+  fullBtn.addEventListener("click", async () => {
+    const res = await fetch(`/add-cartoon/<%= product.id %>`, {
+      method: "POST"
+    });
+
+    const data = await res.json();
+
+    alert("🎉 Full Cartoon Added to Cart!");
+  });
+</script>
+
+
+</body>
+</html>

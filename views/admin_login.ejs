@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" class="transition-colors duration-500">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Dark mode colors */
+        .dark-mode {
+            background: linear-gradient(to bottom right, #1f2937, #111827);
+            color: #f9fafb;
+        }
+
+        /* Glassmorphism card */
+        .glass-card {
+            backdrop-filter: blur(12px);
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* Fade-in animation */
+        .animate-fadeIn {
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0px);
+            }
+        }
+
+        /* Animated login button */
+        .btn-animate {
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn-animate:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body
+    class="flex items-center justify-center min-h-screen bg-gradient-to-br from-gray-100 to-gray-300 transition-colors duration-500">
+
+    <!-- Dark Mode Toggle -->
+    <button id="darkToggle"
+        class="absolute top-6 right-6 px-4 py-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 shadow-lg">
+        🌙 Dark Mode
+    </button>
+
+    <div class="w-full max-w-md p-8 glass-card shadow-xl animate-fadeIn">
+
+        <!-- Illustration -->
+        <div class="text-center mb-6">
+            <img src="/images/admin-illustration.png" alt="Admin Illustration" class="h-24 mx-auto mb-4">
+            <h1 class="text-2xl font-bold">Admin Login</h1>
+            <p class="text-gray-300 dark:text-gray-400 text-sm mt-1">Crystal Choco Store</p>
+        </div>
+
+        <!-- Error Message -->
+        <% if (error) { %>
+            <div class="bg-red-100 text-red-700 px-3 py-2 rounded mb-4 border border-red-300">
+                <%= error %>
+            </div>
+            <% } %>
+
+                <!-- Login Form -->
+                <form method="POST" action="/admin/login" class="space-y-4">
+
+                    <div>
+                        <label class="block mb-1 font-medium">Username</label>
+                        <input name="username" placeholder="Enter admin username"
+                            class="w-full border px-4 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none dark:bg-gray-800 dark:text-white"
+                            required />
+                    </div>
+
+                    <div class="relative">
+                        <label class="block mb-1 font-medium">Password</label>
+                        <input id="passwordInput" name="password" type="password" placeholder="Enter password"
+                            class="w-full border px-4 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none dark:bg-gray-800 dark:text-white"
+                            required />
+                        <button type="button" id="togglePassword"
+                            class="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-gray-200">
+                            👁️
+                        </button>
+                    </div>
+
+                    <button type="submit"
+                        class="w-full bg-blue-600 text-white py-2 rounded-lg btn-animate hover:bg-blue-700">
+                        Login
+                    </button>
+                </form>
+
+                <!-- Footer -->
+                <p class="text-center text-gray-300 dark:text-gray-400 text-sm mt-6">
+                    © 2025 Crystal Choco Store
+                </p>
+    </div>
+
+    <script>
+        // Dark Mode Toggle
+        const toggle = document.getElementById('darkToggle');
+        toggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+        });
+
+        // Password Show/Hide Toggle
+        const passBtn = document.getElementById('togglePassword');
+        const passInput = document.getElementById('passwordInput');
+        passBtn.addEventListener('click', () => {
+            if (passInput.type === 'password') {
+                passInput.type = 'text';
+                passBtn.textContent = '🙈';
+            } else {
+                passInput.type = 'password';
+                passBtn.textContent = '👁️';
+            }
+        });
+    </script>
+
+</body>
+
+</html>

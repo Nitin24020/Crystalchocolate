@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us - Crystal Chocolates</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .fade { opacity: 0; transform: translateY(20px); transition: 0.7s; }
+    .fade.show { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- NAVBAR -->
+  <nav class="bg-white shadow p-4 flex justify-between items-center sticky top-0 z-30">
+    <a href="/" class="text-2xl font-bold text-pink-600">Crystal Chocolates</a>
+    <div class="space-x-4">
+      <a href="/" class="text-gray-700 hover:text-pink-600">Home</a>
+      <a href="/products" class="text-gray-700 hover:text-pink-600">Products</a>
+      <a href="/about" class="text-gray-700 hover:text-pink-600 font-semibold">About Us</a>
+      <a href="/contact" class="text-gray-700 hover:text-pink-600">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="bg-pink-50 py-20 fade">
+    <div class="max-w-6xl mx-auto text-center px-4">
+      <h1 class="text-4xl font-bold text-pink-700 mb-4">About Crystal Chocolates</h1>
+      <p class="text-gray-700 text-lg max-w-3xl mx-auto">
+        At Crystal Chocolates, we deliver the finest sweetness with love ❤️. 
+        Established in 2010, we have been spreading joy through hand-crafted chocolates and candies made from premium ingredients.
+      </p>
+    </div>
+  </section>
+
+  <!-- MISSION & VISION -->
+  <section class="max-w-6xl mx-auto py-20 px-4 grid grid-cols-1 md:grid-cols-2 gap-12">
+    <div class="bg-white p-8 rounded-xl shadow hover:shadow-lg transition fade">
+      <h2 class="text-2xl font-bold text-pink-600 mb-4">Our Mission</h2>
+      <p class="text-gray-700">
+        To bring happiness to every home through our high-quality chocolates, 
+        ensuring every bite is a moment to remember.
+      </p>
+    </div>
+    <div class="bg-white p-8 rounded-xl shadow hover:shadow-lg transition fade">
+      <h2 class="text-2xl font-bold text-pink-600 mb-4">Our Vision</h2>
+      <p class="text-gray-700">
+        To become the most loved chocolate brand in the country, 
+        innovating flavors and maintaining excellence in every product.
+      </p>
+    </div>
+  </section>
+
+  <!-- TEAM SECTION -->
+  <section class="bg-pink-50 py-20">
+    <div class="max-w-6xl mx-auto text-center px-4 fade">
+      <h2 class="text-3xl font-bold text-pink-700 mb-12">Meet Our Team</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition fade text-center">
+          <img src="/images/team1.jpg" class="w-32 h-32 mx-auto rounded-full mb-4 object-cover" />
+          <h3 class="text-xl font-semibold text-gray-800">Nitin Ambhani</h3>
+          <p class="text-gray-500">Founder & CEO</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition fade text-center">
+          <img src="/images/team2.jpg" class="w-32 h-32 mx-auto rounded-full mb-4 object-cover" />
+          <h3 class="text-xl font-semibold text-gray-800">Priya Mehta</h3>
+          <p class="text-gray-500">Head Chocolatier</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition fade text-center">
+          <img src="/images/team3.jpg" class="w-32 h-32 mx-auto rounded-full mb-4 object-cover" />
+          <h3 class="text-xl font-semibold text-gray-800">Rohan Patel</h3>
+          <p class="text-gray-500">Marketing Lead</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="max-w-6xl mx-auto py-20 px-4 fade">
+    <h2 class="text-3xl font-bold text-pink-700 text-center mb-12">What Our Customers Say</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition fade">
+        <p class="text-gray-700 mb-4">"Crystal Chocolates are simply amazing! Perfect for gifting or treating myself."</p>
+        <p class="text-gray-900 font-semibold">— Anjali R.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition fade">
+        <p class="text-gray-700 mb-4">"High quality chocolates with love in every bite. Highly recommended!"</p>
+        <p class="text-gray-900 font-semibold">— Rajesh S.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition fade">
+        <p class="text-gray-700 mb-4">"Amazing flavors and great packaging. My family loves them."</p>
+        <p class="text-gray-900 font-semibold">— Meera K.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT CTA -->
+  <section class="bg-pink-600 text-white py-16 fade">
+    <div class="max-w-4xl mx-auto text-center px-4">
+      <h2 class="text-3xl font-bold mb-4">Get in Touch</h2>
+      <p class="opacity-90 mb-6">Have questions or want to place a bulk order? We'd love to hear from you!</p>
+      <a href="/contact" class="inline-block bg-white text-pink-600 px-6 py-3 rounded-xl font-bold shadow hover:bg-gray-100 transition">
+        📞 Contact Us
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-white shadow py-8 mt-12 fade">
+    <div class="max-w-6xl mx-auto text-center text-gray-500 text-sm">
+      &copy; <%= new Date().getFullYear() %> Crystal Chocolates. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    // Fade-in animation
+    const fades = document.querySelectorAll(".fade");
+    const showFade = () => {
+      fades.forEach(f => {
+        const top = f.getBoundingClientRect().top;
+        if (top < window.innerHeight - 50) f.classList.add("show");
+      });
+    };
+    window.addEventListener("scroll", showFade);
+    window.addEventListener("load", showFade);
+  </script>
+
+</body>
+</html>

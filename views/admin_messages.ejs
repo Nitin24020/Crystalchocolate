@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Messages – Admin</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+  <div class="max-w-7xl mx-auto p-6">
+    <h1 class="text-3xl font-bold mb-6">📬 Contact Messages</h1>
+    <a href="/admin/dashboard" class="text-blue-600 underline mb-4 inline-block">← Back to Dashboard</a>
+
+    <% if (messages.length === 0) { %>
+      <p class="text-gray-600">No messages yet.</p>
+    <% } else { %>
+      <div class="overflow-auto bg-white rounded-xl shadow">
+        <table class="w-full text-left text-sm">
+          <thead class="bg-gray-200">
+            <tr>
+              <th class="p-3">#</th>
+              <th class="p-3">Name</th>
+              <th class="p-3">Email</th>
+              <th class="p-3">Message</th>
+              <th class="p-3">Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% messages.forEach((msg, i) => { %>
+              <tr class="border-b hover:bg-gray-50">
+                <td class="p-3"><%= i + 1 %></td>
+                <td class="p-3 font-semibold"><%= msg.name %></td>
+                <td class="p-3 text-blue-600"><%= msg.email %></td>
+                <td class="p-3"><%= msg.message %></td>
+                <td class="p-3 text-gray-500"><%= msg.date %></td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    <% } %>
+  </div>
+
+</body>
+</html>

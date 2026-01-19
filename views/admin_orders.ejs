@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Orders</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes animate-glow {
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 0.6; }
+    }
+    .btn-glow span:first-child {
+      animation: animate-glow 2s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+  <div class="max-w-6xl mx-auto p-6">
+
+    <!-- Header -->
+    <div class="flex justify-between items-center mb-6">
+      <h1 class="text-3xl font-bold text-gray-800">Orders</h1>
+      <a href="/admin/dashboard" class="text-blue-600 hover:underline text-sm">← Back to Dashboard</a>
+    </div>
+
+    <!-- Date Filter -->
+    <div class="bg-white p-4 rounded-xl shadow mb-6">
+      <form method="GET" action="/admin/orders" class="flex gap-4 items-end">
+        <div>
+          <label class="text-sm font-semibold">Select Date</label>
+          <input type="date" name="date" value="<%= selectedDate %>" class="p-2 border rounded-lg">
+        </div>
+        <button class="px-4 h-10 bg-blue-600 text-white rounded-lg shadow">Filter</button>
+        <% if (selectedDate) { %>
+          <a href="/admin/orders" class="px-4 h-10 bg-gray-300 rounded-lg shadow flex items-center">Reset</a>
+        <% } %>
+      </form>
+      <% if (selectedDate) { %>
+        <p class="mt-4 text-gray-700">
+          Showing <strong><%= totalCount %></strong> orders for <strong><%= selectedDate %></strong>
+        </p>
+      <% } else { %>
+        <p class="mt-4 text-gray-700">Total Orders: <strong><%= totalCount %></strong></p>
+      <% } %>
+    </div>
+
+    <!-- Orders List -->
+    <div class="space-y-5">
+      <% if (orders.length === 0) { %>
+        <div class="p-6 bg-white rounded-xl shadow text-center text-gray-600">No orders found.</div>
+      <% } %>
+
+      <% orders.forEach(order => {
+        const orderDate = new Date(order.date);
+        const formattedDate = `${("0"+orderDate.getDate()).slice(-2)}-${("0"+(orderDate.getMonth()+1)).slice(-2)}-${orderDate.getFullYear()}`;
+        const formattedTime = `${("0"+orderDate.getHours()).slice(-2)}:${("0"+orderDate.getMinutes()).slice(-2)}:${("0"+orderDate.getSeconds()).slice(-2)}`;
+
+        // Group items by category name
+        let itemsByCategory = {};
+        (order.items || []).forEach(it => {
+          if (!itemsByCategory[it.categoryId]) itemsByCategory[it.categoryId] = { categoryName: it.categoryName || "N/A", items: [] };
+          itemsByCategory[it.categoryId].items.push(it);
+        });
+      %>
+
+      <div class="bg-white p-5 rounded-xl shadow border-l-4 border-blue-600">
+
+        <!-- Customer Info -->
+        <div class="mb-4 grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-700">
+          <div>
+            <p><strong>Name:</strong> <%= order.customer || 'N/A' %></p>
+            <p><strong>Phone:</strong> <%= order.phone || 'N/A' %></p>
+            <p><strong>Pincode:</strong> <%= order.address?.pincode || 'N/A' %></p>
+          </div>
+          <div>
+            <p><strong>City:</strong> <%= order.address?.city || 'N/A' %></p>
+            <p><strong>State:</strong> <%= order.address?.state || 'N/A' %></p>
+          </div>
+        </div>
+
+        <!-- Date & Time -->
+        <p class="text-xs text-gray-500 mb-3">
+          <strong>Date:</strong> <%= formattedDate %> 
+          <strong>Time:</strong> <%= formattedTime %>
+        </p>
+
+        <!-- View Bill Button -->
+        <div class="mb-3 flex justify-end">
+          <a href="/admin/orders/<%= order.id %>/bill" class="relative inline-flex items-center px-6 py-3 font-semibold text-white rounded-xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg transition-all duration-300 transform hover:scale-105 hover:shadow-[0_0_20px_rgba(59,130,246,0.6)] hover:bg-white/20 overflow-hidden group w-full sm:w-auto justify-center">
+            <span class="absolute inset-0 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 opacity-20 blur-2xl animate-animate-glow group-hover:opacity-60 rounded-xl"></span>
+            <span class="relative z-10 flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg> View Bill
+            </span>
+          </a>
+        </div>
+
+        <!-- Items grouped by category -->
+        <% let grandTotal = 0; %>
+        <% Object.values(itemsByCategory).forEach(catGroup => { %>
+          <div class="mb-4">
+            <h3 class="font-semibold text-gray-800 mb-2"><%= catGroup.categoryName %></h3>
+            <div class="overflow-x-auto">
+              <table class="w-full text-sm border-collapse">
+                <thead>
+                  <tr class="bg-gray-100 border-b font-semibold">
+                    <th class="p-2 text-left">Product</th>
+                    <th class="p-2 text-center">Qty</th>
+                    <th class="p-2 text-center">Cartoon Size</th>
+                    <th class="p-2 text-center">Pieces</th>
+                    <th class="p-2 text-center">Price / Piece</th>
+                    <th class="p-2 text-center">Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% catGroup.items.forEach(it => { 
+                    const pieces = it.qty * it.cartoon_size;
+                    const total = pieces * it.price;
+                    grandTotal += total;
+                  %>
+                  <tr class="border-b">
+                    <td class="p-2"><%= it.categoryName %></td>
+                    <td class="p-2 text-center"><%= it.qty %></td>
+                    <td class="p-2 text-center"><%= it.cartoon_size %></td>
+                    <td class="p-2 text-center font-semibold text-purple-700"><%= pieces %></td>
+                    <td class="p-2 text-center">₹<%= it.price %></td>
+                    <td class="p-2 text-center font-bold text-green-700">₹<%= total %></td>
+                  </tr>
+                  <% }) %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        <% }) %>
+
+        <div class="text-right mt-3 font-bold text-gray-800 text-lg">
+          Grand Total: ₹<%= grandTotal %>
+        </div>
+
+      </div>
+      <% }) %>
+    </div>
+
+  </div>
+</body>
+</html>

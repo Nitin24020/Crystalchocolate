@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Invoice - <%= order.customer %></title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; }
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100 py-10">
+<div class="max-w-4xl mx-auto bg-white p-8 md:p-10 rounded-3xl shadow-xl border border-gray-200">
+
+  <!-- HEADER -->
+  <div class="flex flex-col md:flex-row justify-between items-center mb-8 gap-6">
+    
+    <div class="flex items-center gap-4">
+      <img src="data:image/png;base64,<%= logoBase64 %>" class="w-16 h-16 rounded-full shadow border" />
+      <div>
+        <h1 class="text-3xl font-bold text-gray-900">Crystal Chocolates</h1>
+        <p class="text-gray-600 text-sm">Sweetness Delivered With Love ❤️</p>
+        <p class="text-gray-600 text-sm">Shop No. 12, Main Market, Ahmedabad</p>
+      </div>
+    </div>
+
+    <div class="text-right">
+      <p class="text-sm text-gray-500">Invoice To:</p>
+      <p class="text-xl font-semibold text-gray-800"><%= order.customer %></p>
+    </div>
+
+  </div>
+
+  <!-- CUSTOMER INFO -->
+  <div class="mb-6 grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-700">
+    <div class="space-y-1">
+      <p><strong>Name:</strong> <%= order.customer || 'N/A' %></p>
+      <p><strong>Phone:</strong> <%= order.phone || 'N/A' %></p>
+      <p><strong>Pincode:</strong> <%= order.address?.pincode || 'N/A' %></p>
+    </div>
+    <div class="space-y-1">
+      <p><strong>City:</strong> <%= order.address?.city || 'N/A' %></p>
+      <p><strong>State:</strong> <%= order.address?.state || 'N/A' %></p>
+    </div>
+  </div>
+
+  <!-- DATE -->
+  <p class="text-sm text-gray-500 mb-4">
+    <strong>Date:</strong> <%= new Date(order.date).toLocaleDateString() %> 
+    <strong>Time:</strong> <%= new Date(order.date).toLocaleTimeString() %>
+  </p>
+
+  <!-- ITEMS TABLE -->
+  <div class="overflow-x-auto">
+    <table class="w-full border-collapse shadow-sm">
+      <thead>
+        <tr class="bg-gray-100 border-b text-gray-700">
+          <th class="p-3 text-left">Product</th>
+          <th class="p-3 text-center">Qty</th>
+          <th class="p-3 text-center">Cartoon Size</th>
+          <th class="p-3 text-center">Price (₹)</th>
+          <th class="p-3 text-center">Total (₹)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% let grand = 0; %>
+        <% (order.items || []).forEach(it => { 
+             const total = it.price * it.qty * (it.cartoon_size || 1);
+             grand += total;
+        %>
+        <tr class="border-b hover:bg-gray-50">
+          <td class="p-2"><%= it.categoryName %></td>
+          <td class="p-3 text-center"><%= it.qty %></td>
+          <td class="p-3 text-center"><%= it.cartoon_size %></td>
+          <td class="p-3 text-center">₹<%= it.price %></td>
+          <td class="p-3 text-center font-semibold">₹<%= total %></td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- GRAND TOTAL -->
+  <div class="text-right text-2xl font-bold mt-6 border-t pt-4">
+    Grand Total: ₹<%= grand %>
+  </div>
+
+  <!-- BUTTONS -->
+  <% if (!isPDF) { %>
+  <div class="mt-8 flex flex-wrap justify-end gap-4 no-print">
+    <a href="/admin/orders/<%= order.id %>/bill/pdf?filename=<%= order.customer.replace(/ /g,'_') %>"
+       class="bg-green-600 text-white px-6 py-2 rounded-lg shadow hover:bg-green-700 transition">
+      Download PDF
+    </a>
+    <a href="/admin/orders"
+       class="bg-gray-300 text-gray-800 px-5 py-2 rounded-lg shadow hover:bg-gray-400 transition">
+      Back
+    </a>
+  </div>
+  <% } %>
+
+</div>
+</body>
+</html>

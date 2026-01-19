@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+
+<div class="max-w-7xl mx-auto p-6">
+
+  <!-- HEADER -->
+  <header class="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-4">
+    <h1 class="text-3xl font-bold text-gray-800">Admin Dashboard</h1>
+    <a href="/admin/logout" class="px-4 py-2 bg-red-500 text-white rounded-lg shadow hover:bg-red-600 transition">
+      Logout
+    </a>
+  </header>
+
+  <!-- ANALYTICS CARDS -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+    <div class="bg-white p-5 rounded-xl shadow hover:shadow-lg transition">
+      <p class="text-gray-500 text-sm">Total Products</p>
+      <p class="text-3xl font-bold text-blue-600"><%= products.length %></p>
+    </div>
+
+    <div class="bg-white p-5 rounded-xl shadow hover:shadow-lg transition">
+      <p class="text-gray-500 text-sm">Categories</p>
+      <p class="text-3xl font-bold text-purple-600"><%= categories.length %></p>
+    </div>
+
+    <div class="bg-white p-5 rounded-xl shadow hover:shadow-lg transition">
+      <p class="text-gray-500 text-sm">Orders</p>
+      <p class="text-3xl font-bold text-green-600"><%= orders.length %></p>
+    </div>
+
+    <div class="bg-white p-5 rounded-xl shadow hover:shadow-lg transition">
+      <p class="text-gray-500 text-sm">Low Stock</p>
+      <p class="text-3xl font-bold text-red-600"><%= products.filter(p=>p.stock <= 5).length %></p>
+    </div>
+  </div>
+
+  <!-- QUICK ACTION BUTTONS -->
+  <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 mb-10">
+    <a href="/admin/products/new" class="dashboard-btn">➕ Add Product</a>
+    <a href="/admin/categories/new" class="dashboard-btn">📂 Add Category</a>
+    <a href="/admin/orders" class="dashboard-btn">🧾 View Orders</a>
+    <a href="/admin/reports" class="dashboard-btn">📊 Reports</a>
+    <a href="/admin/messages" class="dashboard-btn">📩 Messages</a>
+
+  </div>
+
+  <style>
+    .dashboard-btn {
+      @apply p-4 bg-white rounded-xl shadow text-center font-semibold
+             hover:bg-gray-50 hover:shadow-md transition;
+    }
+  </style>
+
+  <!-- PRODUCT TABLE -->
+  <section>
+    <h2 class="text-2xl font-bold text-gray-800 mb-4">📦 Products</h2>
+
+    <!-- SEARCH & CATEGORY FILTER -->
+    <div class="flex flex-col sm:flex-row sm:items-center mb-4 gap-2">
+      <input type="text" placeholder="Search products..." id="productSearch"
+        class="border p-2 rounded w-full sm:w-1/3" onkeyup="filterProducts()">
+
+      <select id="categoryFilter" class="border p-2 rounded w-full sm:w-1/4" onchange="filterProducts()">
+        <option value="">All Categories</option>
+        <% categories.forEach(cat => { %>
+          <option value="<%= cat.id %>"><%= cat.name %></option>
+        <% }) %>
+      </select>
+    </div>
+
+    <div class="bg-white rounded-xl shadow overflow-x-auto">
+      <table class="w-full border-collapse" id="productTable">
+        <thead>
+          <tr class="bg-gray-200 text-gray-700">
+            <th class="p-3 text-left">ID</th>
+            <th class="p-3 text-left">Image</th>
+            <th class="p-3 text-left">Name</th>
+            <th class="p-3 text-left">Stock</th>
+            <th class="p-3 text-left">Price</th>
+            <th class="p-3 text-left">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="productTbody">
+          <% let globalIndex = 1; %>
+          <% productsByCategory.forEach(group => { %>
+              <% group.products.forEach(p => { %>
+              <tr class="border-b hover:bg-gray-50" data-category="<%= group.category.id %>">
+                <td class="p-3 font-medium">1</td> <!-- ID recalculated in JS -->
+                <td class="p-3">
+                  <img src="<%= p.image %>" class="w-12 h-12 rounded shadow cursor-pointer"
+                    onclick="window.open('<%= p.image %>', '_blank')">
+                </td>
+                <td class="p-3"><%= p.name %></td>
+                <td class="p-3">
+                  <div class="flex items-center gap-2">
+                    <div class="bg-gray-200 rounded-full h-3 w-24 overflow-hidden">
+                      <div class="<%= p.stock <= 5 ? 'bg-red-500' : 'bg-green-500' %> h-3 rounded-full"
+                           style="width: <%= Math.min(p.stock * 10, 100) %>%"></div>
+                    </div>
+                    <span class="font-bold"><%= p.stock %></span>
+                    <% if(p.stock <= 5){ %>
+                      <span class="px-2 py-0.5 bg-red-500 text-white text-xs rounded-full">Low Stock</span>
+                    <% } %>
+                  </div>
+                </td>
+                <td class="p-3">₹<%= p.price %></td>
+                <td class="p-3 flex flex-wrap gap-2">
+                  <a href="/admin/products/<%= p.id %>/edit" class="px-3 py-1 bg-blue-500 text-white rounded-lg text-sm">Edit</a>
+                  <a href="/admin/products/<%= p.id %>/delete" onclick="return confirm('Delete this product permanently?')"
+                     class="px-3 py-1 bg-red-500 text-white rounded-lg text-sm">Delete</a>
+                </td>
+              </tr>
+              <% }) %>
+          <% }) %>
+        </tbody>
+        
+        
+      </table>
+    </div>
+  </section>
+
+</div>
+
+<script>
+  function filterProducts() {
+    const searchText = document.getElementById('productSearch').value.toLowerCase();
+    const selectedCategory = document.getElementById('categoryFilter').value;
+    const rows = document.querySelectorAll('#productTbody tr');
+    
+    let visibleIndex = 0;
+  
+    rows.forEach(row => {
+      const name = row.cells[2].innerText.toLowerCase();
+      const rowCategory = row.getAttribute('data-category');
+  
+      // Show row if matches search and category
+      if(name.includes(searchText) && (selectedCategory === '' || rowCategory === selectedCategory)) {
+        row.style.display = '';
+        row.cells[0].innerText = visibleIndex + 1; // ID recalculated dynamically
+        visibleIndex++;
+      } else {
+        row.style.display = 'none';
+      }
+    });
+  }
+  
+  // Trigger on page load to set correct IDs
+  window.addEventListener('load', filterProducts);
+  </script>
+  
+
+</body>
+</html>

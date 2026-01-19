@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us – Crystal Chocolates</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .fade { opacity: 0; transform: translateY(20px); transition: 0.7s; }
+    .fade.show { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- NAVBAR -->
+  <nav class="bg-white shadow p-4 flex justify-between items-center sticky top-0 z-30">
+    <a href="/" class="text-2xl font-bold text-pink-600">Crystal Chocolates</a>
+    <div class="space-x-4">
+      <a href="/" class="text-gray-700 hover:text-pink-600">Home</a>
+      <a href="/products" class="text-gray-700 hover:text-pink-600">Products</a>
+      <a href="/about" class="text-gray-700 hover:text-pink-600">About Us</a>
+      <a href="/contact" class="text-gray-700 hover:text-pink-600 font-semibold">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="text-center py-16 fade">
+    <h1 class="text-4xl font-extrabold text-gray-800">Contact Us</h1>
+    <p class="text-gray-600 mt-2">We’d love to hear from you. Reach out anytime!</p>
+  </header>
+
+  <!-- CONTACT GRID -->
+  <div class="max-w-6xl mx-auto p-6 grid grid-cols-1 md:grid-cols-2 gap-10">
+
+    <!-- LEFT SIDE: CONTACT INFO -->
+    <div class="bg-white p-8 rounded-2xl shadow fade">
+      <h2 class="text-2xl font-bold text-gray-800 mb-4">Get in Touch</h2>
+      <p class="text-gray-600 mb-4">
+        Questions about orders, products, or partnership opportunities? Feel free to contact us.
+      </p>
+
+      <div class="mt-4 space-y-3">
+        <p class="font-semibold text-gray-700">📞 Phone:</p>
+        <p class="text-gray-600">+91 98765 43210</p>
+
+        <p class="font-semibold text-gray-700">📧 Email:</p>
+        <p class="text-gray-600">support@crystalchocolates.com</p>
+
+        <p class="font-semibold text-gray-700">📍 Address:</p>
+        <p class="text-gray-600">Shop No. 12, Main Market, Ahmedabad</p>
+      </div>
+
+      <div class="mt-6">
+        <img src="/logo.png" class="w-32 opacity-80 mx-auto" />
+      </div>
+    </div>
+
+    <!-- RIGHT SIDE: CONTACT FORM -->
+    <div class="bg-white p-8 rounded-2xl shadow fade">
+      <h2 class="text-2xl font-bold text-gray-800 mb-4">Send Us a Message</h2>
+
+      <!-- Placeholder for confirmation -->
+      <% if (typeof success !== 'undefined') { %>
+        <p class="bg-green-100 text-green-700 p-3 rounded mb-4">Your message has been sent successfully!</p>
+      <% } %>
+
+      <form action="/contact" method="post" class="space-y-4">
+
+        <div>
+          <label class="block mb-1 font-medium text-gray-700">Your Name</label>
+          <input type="text" name="name" required
+            class="w-full p-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500" />
+        </div>
+
+        <div>
+          <label class="block mb-1 font-medium text-gray-700">Email Address</label>
+          <input type="email" name="email" required
+            class="w-full p-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500" />
+        </div>
+
+        <div>
+          <label class="block mb-1 font-medium text-gray-700">Message</label>
+          <textarea name="message" rows="4" required
+            class="w-full p-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500"></textarea>
+        </div>
+
+        <button type="submit" class="w-full bg-red-600 text-white py-3 rounded-xl text-lg font-semibold hover:bg-red-700 transition shadow">
+          Send Message
+        </button>
+
+        <% if (typeof success !== 'undefined' && success) { %>
+          <p class="bg-green-100 text-green-700 p-3 rounded mb-4 fade show">
+            <%= success %>
+          </p>
+        <% } %>
+        
+
+        
+
+      </form>
+    </div>
+
+  </div>
+
+  <!-- MAP SECTION (Optional) -->
+  <section class="max-w-6xl mx-auto p-6 mt-12 fade">
+    <h2 class="text-2xl font-bold text-gray-800 mb-4 text-center">Our Location</h2>
+    <div class="w-full h-64 rounded-2xl overflow-hidden shadow">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3670.123456!2d72.567!3d23.012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e1234567890ab%3A0xabcdef1234567890!2sMain%20Market%2C%20Ahmedabad!5e0!3m2!1sen!2sin!4v1670000000000!5m2!1sen!2sin" 
+        class="w-full h-full" 
+        style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-white shadow py-8 mt-12 fade">
+    <div class="max-w-6xl mx-auto text-center text-gray-500 text-sm">
+      &copy; <%= new Date().getFullYear() %> Crystal Chocolates. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    // Fade-in animations
+    const fades = document.querySelectorAll(".fade");
+    const showFade = () => {
+      fades.forEach(f => {
+        const top = f.getBoundingClientRect().top;
+        if (top < window.innerHeight - 50) f.classList.add("show");
+      });
+    };
+    window.addEventListener("scroll", showFade);
+    window.addEventListener("load", showFade);
+  </script>
+
+<script>
+  const successMsg = document.querySelector('.bg-green-100');
+  if (successMsg) {
+    setTimeout(() => {
+      successMsg.style.opacity = '0';
+      successMsg.style.transition = 'opacity 1s';
+    }, 5000); // hides after 5 seconds
+  }
+</script>
+
+</body>
+</html>
