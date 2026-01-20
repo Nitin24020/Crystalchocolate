@@ -102,7 +102,7 @@
       "price": 50,
       "cartoon_size": 20,
       "image": "/media/placeholder-product.png",
-      "stock": 8
+      "stock": 4
     },
     {
       "id": 11,
@@ -1252,6 +1252,32 @@
       "subtotal": 1000,
       "total": 1000,
       "date": "2026-01-12T07:04:46.511Z",
+      "status": "Pending"
+    },
+    {
+      "id": "taNhq5jZV",
+      "customer": "Nitin",
+      "phone": "9712155265",
+      "address": {
+        "pincode": "388001",
+        "city": "Anand",
+        "state": "Gujarat"
+      },
+      "items": [
+        {
+          "productId": 10,
+          "categoryId": 7,
+          "image": "/media/placeholder-product.png",
+          "qty": 4,
+          "cartoon_size": 20,
+          "price": 50,
+          "totalPieces": 80,
+          "total": 4000
+        }
+      ],
+      "subtotal": 4000,
+      "total": 4000,
+      "date": "2026-01-20T07:47:48.754Z",
       "status": "Pending"
     }
   ]
