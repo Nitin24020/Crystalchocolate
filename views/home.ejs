@@ -4,6 +4,10 @@
 <head>
     <meta charset="UTF-8" />
     <title>Crystal Choco Store</title>
+
+    <!-- MOBILE VIEWPORT (MUST) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
@@ -27,10 +31,15 @@
         .banner-slide.active {
             opacity: 1;
         }
+
+        /* MOBILE TAP UX */
+        a, button {
+            -webkit-tap-highlight-color: transparent;
+        }
     </style>
 </head>
 
-<body class="bg-gray-100">
+<body class="bg-gray-100 overflow-x-hidden">
 
     <!-- NAVBAR -->
     <nav class="bg-white shadow-md py-4 px-6 sticky top-0 z-50">
@@ -38,7 +47,7 @@
 
             <!-- LOGO -->
             <div class="flex items-center gap-3">
-                <img src="/images/logo.jpg" class="h-12 w-12" alt="Logo">
+                <img src="/images/logo.jpg" class="h-12 w-12" alt="Logo" loading="lazy">
                 <span class="text-2xl font-bold text-red-600">Crystal Choco Store</span>
             </div>
 
@@ -71,39 +80,47 @@
         <a href="/cart" class="block hover:text-red-600">Cart</a>
     </div>
 
-
     <script>
         function toggleMenu() {
             document.getElementById("mobileMenu").classList.toggle("hidden");
         }
     </script>
 
-
-    <!-- HERO AUTO SLIDER -->
     <!-- HERO AUTO SLIDER -->
     <section class="relative w-full h-[350px] md:h-[450px] overflow-hidden">
+
         <div class="absolute inset-0 transition-opacity duration-700 slider" style="opacity:1;">
-            <img src="/media/banner1.webp" class="slide active">
-        </div>
-        <div class="absolute inset-0 transition-opacity duration-700 slider" style="opacity:0;">
-            <img src="/media/banner2.webp" class="slide">
-        </div>
-        <div class="absolute inset-0 transition-opacity duration-700 slider" style="opacity:0;">
-            <img src="/media/banner3.jpg" class="slide">
+            <img src="/media/banner1.webp"
+            class="w-full h-full object-cover object-left md:object-center"
+            loading="lazy">
         </div>
 
-    </section>
-
-    <!-- TEXT OVERLAY -->
-    <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
-        <div class="text-center text-white">
-            <h1 class="text-4xl font-bold">Welcome to Crystal Choco Store</h1>
-            <p class="mt-2 text-lg">Premium Handmade Chocolates • Gift Packs • Special Orders</p>
-            <a href="/products" class="mt-4 inline-block bg-red-600 px-6 py-3 text-lg rounded-lg hover:bg-red-700">
-                Shop Now
-            </a>
+        <div class="absolute inset-0 transition-opacity duration-700 slider" style="opacity:0;">
+            <img src="/media/banner2.webp"
+            class="w-full h-full object-cover object-left md:object-center"
+            loading="lazy">
         </div>
-    </div>
+
+        <div class="absolute inset-0 transition-opacity duration-700 slider" style="opacity:0;">
+            <img src="/media/banner3.jpg"
+            class="w-full h-full object-cover object-left md:object-center"
+            loading="lazy">
+        </div>
+
+        <!-- TEXT OVERLAY (UNCHANGED VIEW) -->
+        <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+            <div class="text-center text-white">
+                <h1 class="text-4xl font-bold">Welcome to Crystal Choco Store</h1>
+                <p class="mt-2 text-lg">
+                    Premium Handmade Chocolates • Gift Packs • Special Orders
+                </p>
+                <a href="/products"
+                   class="mt-4 inline-block bg-red-600 px-6 py-3 text-lg rounded-lg hover:bg-red-700">
+                    Shop Now
+                </a>
+            </div>
+        </div>
+
     </section>
 
     <script>
@@ -111,22 +128,13 @@
         const slides = document.querySelectorAll(".slider");
 
         setInterval(() => {
-            slides[index].style.opacity = 0;   // hide current
+            slides[index].style.opacity = 0;
             index = (index + 1) % slides.length;
-            slides[index].style.opacity = 1;   // show next
+            slides[index].style.opacity = 1;
         }, 3000);
     </script>
 
-
-    <div style="background:black;color:white;font-size:30px;text-align:center;">
-      LIVE UPDATE CHECK
-    </div>
-    
     <!-- rest of your page -->
-    
-  
-    
 
 </body>
-
 </html>
