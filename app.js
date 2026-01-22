@@ -145,6 +145,22 @@ app.get("/products", (req, res) => {
   });
 });
 
+// PRODUCT DETAIL PAGE
+app.get("/product/:id", (req, res) => {
+  const DB = readData();
+  const id = parseInt(req.params.id);
+
+  const product = DB.products.find(p => p.id === id);
+  if (!product) return res.redirect("/products");
+
+  res.render("product_detail", {
+    product,
+    cart_count: getCartCount(req)
+  });
+});
+
+
+
 app.post("/add-full-carton/:categoryId", (req, res) => {
   const DB = readData();
   const categoryId = req.params.categoryId;
@@ -465,9 +481,6 @@ app.post('/admin/products/new', requireAdmin, upload.single('image'), (req,res)=
 });
 
 // Add Category
-app.get('/admin/categories/new', requireAdmin, (req,res)=>{
-  res.render('admin_category_form', { action: '/admin/categories/new' });
-});
 app.post('/admin/categories/new', requireAdmin, (req,res)=>{
   DB = readData();
   const id = (DB.categories.reduce((a,b)=>Math.max(a,b.id), 0) || 0) + 1;
@@ -476,6 +489,31 @@ app.post('/admin/categories/new', requireAdmin, (req,res)=>{
   res.redirect('/admin/dashboard');
 });
 
+// GET Add Category Page
+app.get('/admin/categories/new', requireAdmin, (req, res) => {
+  const DB = readData();
+  res.render('add_category', { 
+    action: '/admin/categories/new', 
+    categories: DB.categories 
+  });
+});
+
+
+app.post('/admin/categories/delete/:id', requireAdmin, (req, res) => {
+  const DB = readData();
+  const id = parseInt(req.params.id);
+
+  // Remove category
+  DB.categories = DB.categories.filter(c => c.id !== id);
+
+  // Optional: remove all products in this category
+  DB.products = DB.products.filter(p => p.category != id);
+
+  writeData(DB);
+  res.redirect('/admin/categories/new');
+});
+
+
 app.get("/admin/orders", requireAdmin, (req, res) => {
   const DB = readData();
   let orders = DB.orders || [];
@@ -483,11 +521,20 @@ app.get("/admin/orders", requireAdmin, (req, res) => {
   // Sort newest → oldest
   orders.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-  // Date Filter
-  let selectedDate = req.query.date || "";
-  let filteredOrders = orders;
+  // Determine selected date
+  let selectedDate = req.query.date;
 
-  if (selectedDate) {
+  // If no date is selected, default to today
+  const todayStr = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
+  if (!selectedDate) {
+    selectedDate = todayStr;
+  }
+
+  // Filter orders based on selectedDate
+  let filteredOrders;
+  if (selectedDate === "all") {
+    filteredOrders = orders; // Show all orders
+  } else {
     filteredOrders = orders.filter(o =>
       String(o.date).startsWith(selectedDate)
     );
@@ -511,6 +558,7 @@ app.get("/admin/orders", requireAdmin, (req, res) => {
     totalCount: filteredOrders.length
   });
 });
+
 
 
 app.get("/admin/orders/:id/bill", requireAdmin, (req, res) => { 
@@ -585,30 +633,21 @@ app.get("/admin/orders/:id/bill/pdf", requireAdmin, async (req, res) => {
 });
 
 
-
-// ADMIN REPORTS PAGE
+// --- ADMIN REPORTS ---
 app.get('/admin/reports', requireAdmin, (req, res) => {
-  DB = readData();
-
-  const orders = DB.orders;
+  const DB = readData();
+  const orders = DB.orders || [];
 
   // --- SALES CALCULATIONS ---
   const totalSales = orders.reduce((sum, o) => sum + o.total, 0);
   const totalOrders = orders.length;
+  const totalItemsSold = orders.reduce((sum, o) => sum + o.items.reduce((s, it) => s + it.qty, 0), 0);
 
-  const totalItemsSold = orders.reduce((sum, o) =>
-    sum + o.items.reduce((s, it) => s + it.qty, 0)
-  , 0);
-
-  // Today’s revenue
   const today = new Date().toISOString().split("T")[0];
-  const todayRevenue = orders
-    .filter(o => o.date.startsWith(today))
-    .reduce((sum, o) => sum + o.total, 0);
+  const todayRevenue = orders.filter(o => o.date.startsWith(today)).reduce((sum, o) => sum + o.total, 0);
 
-  // --- BEST SELLING PRODUCTS ---
+  // BEST SELLING
   let bestSelling = {};
-
   orders.forEach(order => {
     order.items.forEach(it => {
       if (!bestSelling[it.name]) bestSelling[it.name] = { qty: 0, total: 0 };
@@ -616,45 +655,25 @@ app.get('/admin/reports', requireAdmin, (req, res) => {
       bestSelling[it.name].total += it.total;
     });
   });
+  bestSelling = Object.entries(bestSelling).sort((a, b) => b[1].qty - a[1].qty).slice(0, 5);
 
-  bestSelling = Object.entries(bestSelling)
-    .sort((a, b) => b[1].qty - a[1].qty)
-    .slice(0, 5);
-
-  // --- CATEGORY SALES ---
+  // CATEGORY SALES
   let categorySales = {};
-  DB.categories.forEach(cat => categorySales[cat.name] = 0);
-
+  (DB.categories || []).forEach(cat => categorySales[cat.name] = 0);
   orders.forEach(order => {
     order.items.forEach(it => {
       const p = DB.products.find(x => x.id === it.productId);
       if (p) {
         const cat = DB.categories.find(c => c.id === p.category);
-        if (cat) {
-          categorySales[cat.name] += it.total;
-        }
+        if (cat) categorySales[cat.name] += it.total;
       }
     });
   });
 
-  app.get("/admin/reports/export-csv", requireAdmin, (req, res) => {
-    DB = readData();
-    const orders = DB.orders;
-  
-    let csv = "OrderID,Customer,Total,Date\n";
-  
-    orders.forEach(o => {
-      csv += `${o.id},${o.customer},${o.total},${o.date}\n`;
-    });
-  
-    res.setHeader("Content-Type", "text/csv");
-    res.setHeader("Content-Disposition", "attachment; filename=report.csv");
-    res.send(csv);
-  });
-  
-  // --- LOW STOCK PRODUCTS ---
-  const lowStock = DB.products.filter(p => p.stock <= 5);
+  // LOW STOCK PRODUCTS
+  const lowStock = (DB.products || []).filter(p => p.stock <= 5);
 
+  // RENDER REPORTS PAGE
   res.render("reports", {
     totalSales,
     totalOrders,
@@ -666,6 +685,23 @@ app.get('/admin/reports', requireAdmin, (req, res) => {
     orders
   });
 });
+
+// --- EXPORT CSV (SEPARATE ROUTE) ---
+app.get("/admin/reports/export-csv", requireAdmin, (req, res) => {
+  const DB = readData();
+  const orders = DB.orders || [];
+
+  let csv = "OrderID,Customer,Total,Date\n";
+  orders.forEach(o => {
+    csv += `${o.id},${o.customer},${o.total},${o.date}\n`;
+  });
+
+  res.setHeader("Content-Type", "text/csv");
+  res.setHeader("Content-Disposition", "attachment; filename=report.csv");
+  res.send(csv);
+});
+
+
 
 // ADMIN VIEW MESSAGES
 const messagesFile = path.join(__dirname, "data", "messages.json");

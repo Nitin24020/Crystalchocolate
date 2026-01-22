@@ -108,7 +108,6 @@
       "id": 11,
       "name": "Imli Jelly",
       "category": 5,
-      "description": "",
       "price": 40,
       "cartoon_size": 36,
       "image": "/media/X9ITY376J.png",
@@ -213,6 +212,56 @@
       "cartoon_size": 36,
       "image": "/media/7cCeNguob.png",
       "stock": 20
+    },
+    {
+      "id": 22,
+      "name": "Jo",
+      "description": "Delicious premium chocolate with rich taste.",
+      "packaging": "Box",
+      "origin": "India",
+      "shape": "Square",
+      "type": "Dark Chocolate",
+      "color": "Brown"
+    },
+    {
+      "id": 23,
+      "name": "jo2",
+      "category": 1,
+      "description": "class: 1\r\nclass: 2\r\nclass: 3\r\n",
+      "price": 50,
+      "cartoon_size": 20,
+      "image": "/media/placeholder-product.png",
+      "stock": 10
+    },
+    {
+      "id": 24,
+      "name": "Jo3",
+      "category": 1,
+      "description": "Type:choco\r\nsIZE 20\r\nIDNIA \r\n",
+      "price": 50,
+      "cartoon_size": 20,
+      "image": "/media/placeholder-product.png",
+      "stock": 10
+    },
+    {
+      "id": 25,
+      "name": "Joom",
+      "category": 1,
+      "description": " \"description\": \"Delicious premium chocolate made from high-quality cocoa.\\n\\n📦 Packaging Type: Box\\n🌍 Country of Origin: India\\n🔷 Shape: Square\\n🍫 Type: Dark Chocolate\\n🎨 Color: Brown\"\r\n",
+      "price": 4,
+      "cartoon_size": 23,
+      "image": "/media/placeholder-product.png",
+      "stock": 20
+    },
+    {
+      "id": 26,
+      "name": "Joom2",
+      "category": 1,
+      "description": "class:1  class:2 class:3",
+      "price": 29,
+      "cartoon_size": 29,
+      "image": "/media/placeholder-product.png",
+      "stock": 29
     }
   ],
   "banners": [
