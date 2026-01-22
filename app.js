@@ -134,16 +134,29 @@ app.get("/products", (req, res) => {
   const DB = readData();
   const category = req.query.category || "";
 
+  // ✅ SORT CATEGORIES BY ADMIN DRAG ORDER
+  const sortedCategories = DB.categories.sort(
+    (a, b) => (a.sort_order || 0) - (b.sort_order || 0)
+  );
+
   let products = DB.products;
-  if (category) products = products.filter(p => p.category == category);
+
+  // ✅ FILTER + SORT PRODUCTS INSIDE CATEGORY
+  if (category) {
+    products = products
+      .filter(p => p.category == category)
+      .sort((a, b) => a.name.localeCompare(b.name)); // alphabetical
+  }
 
   res.render("products", {
     products,
-    categories: DB.categories,
+    categories: sortedCategories, // ← IMPORTANT
     category,
     cart_count: getCartCount(req),
   });
 });
+
+
 
 // PRODUCT DETAIL PAGE
 app.get("/product/:id", (req, res) => {
@@ -457,7 +470,15 @@ app.get('/admin/dashboard', requireAdmin, (req, res) => {
 // Add Product
 app.get('/admin/products/new', requireAdmin, (req,res)=>{
   DB = readData();
-  res.render('admin_product_form', { product: null, categories: DB.categories, action: '/admin/products/new' });
+
+  // ✅ Sort categories by admin order
+  const sortedCategories = DB.categories.sort((a,b) => (a.sort_order || 0) - (b.sort_order || 0));
+
+  res.render('admin_product_form', { 
+    product: null, 
+    categories: sortedCategories, 
+    action: '/admin/products/new' 
+  });
 });
 
 app.post('/admin/products/new', requireAdmin, upload.single('image'), (req,res)=>{
@@ -482,10 +503,13 @@ app.post('/admin/products/new', requireAdmin, upload.single('image'), (req,res)=
 
 // Add Category
 app.post('/admin/categories/new', requireAdmin, (req,res)=>{
-  DB = readData();
-  const id = (DB.categories.reduce((a,b)=>Math.max(a,b.id), 0) || 0) + 1;
-  DB.categories.push({ id, name: req.body.name });
-  writeData(DB);
+  const maxOrder = DB.categories.reduce((a,b)=>Math.max(a, b.sort_order || 0), 0);
+  DB.categories.push({
+    id,
+    name: req.body.name,
+    sort_order: maxOrder + 1
+  });
+  
   res.redirect('/admin/dashboard');
 });
 
@@ -494,7 +518,7 @@ app.get('/admin/categories/new', requireAdmin, (req, res) => {
   const DB = readData();
   res.render('add_category', { 
     action: '/admin/categories/new', 
-    categories: DB.categories 
+    categories: DB.categories.sort((a,b) => a.sort_order - b.sort_order)
   });
 });
 
@@ -512,6 +536,20 @@ app.post('/admin/categories/delete/:id', requireAdmin, (req, res) => {
   writeData(DB);
   res.redirect('/admin/categories/new');
 });
+
+app.post('/admin/categories/reorder', requireAdmin, (req, res) => {
+  const DB = readData();
+  const order = req.body;
+
+  order.forEach(o => {
+    const cat = DB.categories.find(c => c.id == o.id);
+    if (cat) cat.sort_order = o.sort_order;
+  });
+
+  writeData(DB);
+  res.json({ success: true });
+});
+
 
 
 app.get("/admin/orders", requireAdmin, (req, res) => {
@@ -726,10 +764,13 @@ app.get("/admin/products/:id/edit", requireAdmin, (req, res) => {
   const product = DB.products.find(p => p.id === productId);
   if (!product) return res.send("Product not found");
 
+  const sortedCategories = DB.categories.sort((a,b) => (a.sort_order || 0) - (b.sort_order || 0));
+
   res.render("admin_edit_product", {
     product,
-    categories: DB.categories
+    categories: sortedCategories
   });
+  
 });
 
 app.post("/admin/products/:id/edit", requireAdmin, upload.single("image"), (req, res) => {
