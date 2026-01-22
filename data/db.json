@@ -1,130 +1,41 @@
 {
   "categories": [
     {
-      "id": 1,
-      "name": "Chocolates",
-      "sort_order": 2
-    },
-    {
-      "id": 2,
-      "name": "Gift Packs",
-      "sort_order": 1
-    },
-    {
-      "id": 3,
-      "name": "Candy",
-      "sort_order": 3
-    },
-    {
-      "id": 4,
-      "name": "Premium Box",
-      "sort_order": 4
-    },
-    {
       "id": 5,
       "name": "Jelly Box",
-      "sort_order": 5
+      "sort_order": 3
     },
     {
       "id": 6,
       "name": "Eclair Toffee Packet",
-      "sort_order": 6
-    },
-    {
-      "id": 7,
-      "name": "Candy Packet",
-      "sort_order": 7
+      "sort_order": 2
     },
     {
       "id": 8,
       "name": "Toffee Box",
-      "sort_order": 8
-    },
-    {
-      "id": 9,
-      "name": "Small Gift Box",
-      "sort_order": 9
+      "sort_order": 1
     },
     {
       "id": 10,
       "name": "jelly",
-      "sort_order": 10
+      "sort_order": 4
     },
     {
       "id": 11,
-      "name": "Premium Toffee Packet",
-      "sort_order": 11
-    },
-    {
-      "id": 12,
-      "name": "Toffee Box",
-      "sort_order": 12
-    },
-    {
-      "id": 13,
-      "name": "Premium Toffee Box",
-      "sort_order": 13
+      "name": "Jelly Jar",
+      "sort_order": 5
     }
   ],
   "products": [
     {
-      "id": 6,
-      "name": "Dry Fru Nuts Toffee",
-      "category": 4,
-      "description": "Flavour\tBlueberry, Strawberry\r\nType\tToffee\r\nShape\tRectangular\r\nPackaging Type\tBox, Carton\r\nColor\tBrown\r\nBrand\tCrystal",
-      "price": 55,
-      "cartoon_size": 36,
-      "image": "/media/mkZb3COBf.webp",
-      "stock": 50
-    },
-    {
-      "id": 7,
-      "name": "Green Apple Flavored Candy",
-      "category": 3,
-      "description": "Packaging Type : Packet\r\nCountry of Origin : Made in India\r\nShape :Round\r\nType : Hard Candy\r\nColor : Green",
-      "price": 50,
-      "cartoon_size": 20,
-      "image": "/media/nR58NJu2N.webp",
-      "stock": 0
-    },
-    {
-      "id": 8,
-      "name": "Mango Flavored Candy",
-      "category": 3,
-      "description": "Packaging Size : 300 gm\r\nShape : Round\r\nType : Toffee\r\nPackaging Type : Packet",
-      "price": 50,
-      "cartoon_size": 20,
-      "image": "/media/qUwHezWZn.webp",
-      "stock": 16
-    },
-    {
-      "id": 9,
-      "name": "Lemao Flavour Candy",
-      "category": 3,
-      "description": "Candy Type : Hard Candy\r\nShape : Round\r\nPackaging Type : Packet\r\nFlavour : Lemao\r\nCountry of Origin : Made in India",
-      "price": 50,
-      "cartoon_size": 20,
-      "image": "/media/1eZDPQ7No.webp",
-      "stock": 9
-    },
-    {
-      "id": 10,
-      "name": "Imli Flavour Candy",
-      "category": 7,
-      "description": "Blank",
-      "price": 50,
-      "cartoon_size": 20,
-      "image": "/media/placeholder-product.png",
-      "stock": 4
-    },
-    {
       "id": 11,
-      "name": "Imli Jelly",
+      "name": "Imli Jelly1",
       "category": 5,
       "price": 40,
       "cartoon_size": 36,
       "image": "/media/X9ITY376J.png",
-      "stock": 10
+      "stock": 10,
+      "description": ""
     },
     {
       "id": 12,
@@ -157,73 +68,43 @@
       "stock": 10
     },
     {
-      "id": 15,
-      "name": "Honey Eclair Toffee",
-      "category": 9,
-      "description": "",
-      "price": 60,
-      "cartoon_size": 20,
-      "image": "/media/zcZfXMvYH.png",
-      "stock": 5
-    },
-    {
-      "id": 16,
-      "name": "Coconut Eclair Toffee",
-      "category": 9,
-      "description": "",
-      "price": 60,
-      "cartoon_size": 20,
-      "image": "/media/1QqVpBol-.png",
-      "stock": 5
-    },
-    {
-      "id": 17,
-      "name": "Milk Eclair Toffee",
-      "category": 9,
-      "description": "",
-      "price": 60,
-      "cartoon_size": 20,
-      "image": "/media/8cn-GCCpa.png",
-      "stock": 5
-    },
-    {
       "id": 18,
       "name": "Coconut Butter Toffee Box",
       "category": 8,
-      "description": "",
-      "price": 45,
+      "description": "QTY Per Cartoon: 36 Boxes\r\nPackaging Size: 100 Piece/Box\r\nNet Weight: 350G Per Box\r\nMRP: Per Box ₹100\r\nPrice Per Piece: ₹1",
+      "price": 48,
       "cartoon_size": 36,
-      "image": "/media/MpSJJASLY.png",
+      "image": "/media/lr6R1oiDG.webp",
       "stock": 20
     },
     {
       "id": 19,
       "name": "Kaju Butter Toffee",
       "category": 8,
-      "description": "",
-      "price": 45,
+      "description": "QTY Per Cartoon: 36 Boxes\r\nPackaging Size: 100 Piece/Box\r\nNet Weight: 350G Per Box\r\nMRP: Per Box ₹100\r\nPrice Per Piece: ₹1",
+      "price": 48,
       "cartoon_size": 36,
-      "image": "/media/LDf5u3UN-.png",
+      "image": "/media/GhSF3NE0X.webp",
       "stock": 20
     },
     {
       "id": 20,
       "name": "Fruit Toffee Box",
       "category": 8,
-      "description": "",
-      "price": 45,
+      "description": "QTY Per Cartoon: 36 Boxes\r\nPackaging Size: 100 Piece/Box\r\nNet Weight: 350G Per Box\r\nMRP: Per Box ₹100\r\nPrice Per Piece: ₹1",
+      "price": 48,
       "cartoon_size": 36,
-      "image": "/media/39PXnERZW.png",
+      "image": "/media/YZ1bK9w6M.webp",
       "stock": 20
     },
     {
       "id": 21,
       "name": "Almond Toffee Box",
       "category": 8,
-      "description": "",
-      "price": 45,
+      "description": "QTY Per Cartoon: 36 Boxes\r\nPackaging Size: 100 Piece/Box\r\nNet Weight: 350G Per Box\r\nMRP: Per Box ₹100\r\nPrice Per Piece: ₹1",
+      "price": 48,
       "cartoon_size": 36,
-      "image": "/media/7cCeNguob.png",
+      "image": "/media/-GwI_lgWg.webp",
       "stock": 20
     },
     {
@@ -238,43 +119,33 @@
     },
     {
       "id": 23,
-      "name": "jo2",
-      "category": 1,
-      "description": "class: 1\r\nclass: 2\r\nclass: 3\r\n",
+      "name": "Pista Toffee Box",
+      "category": 8,
+      "description": "QTY Per Cartoon: 36 Boxes\r\nPackaging Size: 100 Piece/Box\r\nNet Weight: 350G Per Box\r\nMRP: Per Box ₹100\r\nPrice Per Piece: ₹1",
       "price": 50,
       "cartoon_size": 20,
-      "image": "/media/placeholder-product.png",
-      "stock": 10
-    },
-    {
-      "id": 24,
-      "name": "Jo3",
-      "category": 1,
-      "description": "Type:choco\r\nsIZE 20\r\nIDNIA \r\n",
-      "price": 50,
-      "cartoon_size": 20,
-      "image": "/media/placeholder-product.png",
-      "stock": 10
-    },
-    {
-      "id": 25,
-      "name": "Joom",
-      "category": 1,
-      "description": " \"description\": \"Delicious premium chocolate made from high-quality cocoa.\\n\\n📦 Packaging Type: Box\\n🌍 Country of Origin: India\\n🔷 Shape: Square\\n🍫 Type: Dark Chocolate\\n🎨 Color: Brown\"\r\n",
-      "price": 4,
-      "cartoon_size": 23,
-      "image": "/media/placeholder-product.png",
+      "image": "/media/Rwtdi33jr.webp",
       "stock": 20
     },
     {
-      "id": 26,
-      "name": "Joom2",
-      "category": 1,
-      "description": "class:1  class:2 class:3",
-      "price": 29,
-      "cartoon_size": 29,
-      "image": "/media/placeholder-product.png",
-      "stock": 29
+      "id": 24,
+      "name": "Butter Toffee Box",
+      "category": 8,
+      "description": "QTY Per Cartoon: 36 Boxes\r\nPackaging Size: 100 Piece/Box\r\nNet Weight: 350G Per Box\r\nMRP: Per Box ₹100\r\nPrice Per Piece: ₹1",
+      "price": 48,
+      "cartoon_size": 20,
+      "image": "/media/EBv3fq79z.webp",
+      "stock": 20
+    },
+    {
+      "id": 25,
+      "name": "Anjeer Toffee Box",
+      "category": 8,
+      "description": "QTY Per Cartoon: 36 Boxes\r\nPackaging Size: 100 Piece/Box\r\nNet Weight: 350G Per Box\r\nMRP: Per Box ₹100\r\nPrice Per Piece: ₹1",
+      "price": 48,
+      "cartoon_size": 20,
+      "image": "/media/cdywFJRF1.webp",
+      "stock": 20
     }
   ],
   "banners": [

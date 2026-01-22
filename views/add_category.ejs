@@ -36,12 +36,12 @@
         <% categories.forEach(c => { %>
           <li data-id="<%= c.id %>"
               class="flex items-center justify-between bg-gray-50 p-3 rounded shadow-sm cursor-move">
-      
+    
             <span class="flex items-center gap-2 font-medium">
               <span class="text-gray-400">☰</span>
               <%= c.name %>
             </span>
-      
+    
             <form method="POST" action="/admin/categories/delete/<%= c.id %>"
                   onsubmit="return confirm('Are you sure?');">
               <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">
@@ -51,9 +51,10 @@
           </li>
         <% }) %>
       </ul>
-      
+    <% } else { %>
       <p class="text-gray-500">No categories added yet.</p>
     <% } %>
+    
   </div>
 
   <a href="/admin/dashboard"
@@ -64,24 +65,26 @@
 <script>
   const list = document.getElementById('categoryList');
 
-  Sortable.create(list, {
-    animation: 150,
-    onEnd: () => {
-      const order = [];
-      list.querySelectorAll('li').forEach((item, index) => {
-        order.push({
-          id: item.dataset.id,
-          sort_order: index + 1
+  if (list) {
+    Sortable.create(list, {
+      animation: 150,
+      onEnd: () => {
+        const order = [];
+        list.querySelectorAll('li').forEach((item, index) => {
+          order.push({
+            id: item.dataset.id,
+            sort_order: index + 1
+          });
         });
-      });
 
-      fetch('/admin/categories/reorder', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(order)
-      });
-    }
-  });
+        fetch('/admin/categories/reorder', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(order)
+        });
+      }
+    });
+  }
 </script>
 
 

@@ -501,17 +501,35 @@ app.post('/admin/products/new', requireAdmin, upload.single('image'), (req,res)=
   res.redirect('/admin/dashboard');
 });
 
-// Add Category
-app.post('/admin/categories/new', requireAdmin, (req,res)=>{
-  const maxOrder = DB.categories.reduce((a,b)=>Math.max(a, b.sort_order || 0), 0);
+
+app.post('/admin/categories/new', requireAdmin, (req, res) => {
+  const DB = readData();   // ✅ reload latest DB
+
+  // find max sort_order
+  const maxOrder = DB.categories.reduce(
+    (a, b) => Math.max(a, b.sort_order || 0),
+    0
+  );
+
+  // generate new id
+  const newId =
+    DB.categories.length > 0
+      ? Math.max(...DB.categories.map(c => c.id)) + 1
+      : 1;
+
+  // push new category
   DB.categories.push({
-    id,
-    name: req.body.name,
+    id: newId,
+    name: req.body.name.trim(),
     sort_order: maxOrder + 1
   });
-  
+
+  writeData(DB);           // ✅ SAVE TO FILE
+
   res.redirect('/admin/dashboard');
 });
+
+
 
 // GET Add Category Page
 app.get('/admin/categories/new', requireAdmin, (req, res) => {
@@ -773,35 +791,35 @@ app.get("/admin/products/:id/edit", requireAdmin, (req, res) => {
   
 });
 
-app.post("/admin/products/:id/edit", requireAdmin, upload.single("image"), (req, res) => {
-  let DB = readData();
-  const productId = parseInt(req.params.id);
+app.post("/admin/products/:id/edit",
+  requireAdmin,
+  upload.single("image"),
+  (req, res) => {
 
-  const product = DB.products.find(p => p.id === productId);
+  let DB = readData();
+
+  const product = DB.products.find(p => p.id == req.params.id);
   if (!product) return res.send("Product not found");
 
   const { name, description, category, price, stock, cartoon_size, image_url } = req.body;
 
-  // Choose image (file > URL > old image)
   let image = product.image;
 
   if (req.file) {
     image = "/media/" + req.file.filename;
-  } else if (image_url && image_url.trim() !== "") {
-    image = image_url;
+  } else if (image_url && image_url.trim()) {
+    image = image_url.trim();
   }
 
-  // Update product
   product.name = name;
   product.description = description;
   product.category = parseInt(category);
-  product.price = parseFloat(price);
-  product.stock = parseInt(stock);
-  product.cartoon_size = parseInt(cartoon_size);
+  product.price = Number(price);
+  product.stock = Number(stock);
+  product.cartoon_size = Number(cartoon_size);
   product.image = image;
 
   writeData(DB);
-
   res.redirect("/admin/dashboard");
 });
 
