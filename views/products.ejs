@@ -33,81 +33,82 @@
 </div>
 
 <div class="max-w-7xl mx-auto p-4">
+
 <!-- HEADER -->
 <header class="flex items-center mb-6">
-
-  <!-- LEFT : TITLE -->
   <h1 class="text-3xl font-bold">Our Products</h1>
 
-  <!-- RIGHT : BUTTONS -->
   <div class="ml-auto flex gap-3">
-
-    <!-- 🔙 HOME -->
     <a href="/"
-      class="px-4 py-2 bg-gray-200 rounded-lg shadow
-             hover:bg-gray-300 font-semibold">
+      class="px-4 py-2 bg-gray-200 rounded-lg shadow hover:bg-gray-300 font-semibold">
       ← Home
     </a>
 
-    <!-- 🛒 CART -->
     <a href="/cart"
       class="px-4 py-2 bg-white rounded-lg shadow font-semibold">
       Cart (<%= cart_count %>)
     </a>
-
   </div>
-
 </header>
 
+<!-- 🔍 SEARCH BAR -->
+<div class="mb-5">
+  <input
+    type="text"
+    id="searchInput"
+    placeholder="🔍 Search product..."
+    class="w-full border p-3 rounded-xl focus:ring-2 focus:ring-blue-400"
+  />
+</div>
 
+<!-- CATEGORY BANNER -->
+<div class="bg-white p-5 rounded-2xl shadow mb-6 flex justify-between items-center">
 
+  <% if (category) { 
+    const cat = categories.find(c => c.id == category);
+  %>
+    <div>
+      <p class="text-sm text-gray-500">Selected Category</p>
+      <h2 class="text-2xl font-bold"><%= cat.name %></h2>
+    </div>
 
-  <!-- CATEGORY BANNER -->
-  <div class="bg-white p-5 rounded-2xl shadow mb-6 flex justify-between items-center">
+    <button
+      id="addCategoryCarton"
+      data-category="<%= category %>"
+      class="px-6 py-3 bg-orange-600 text-white rounded-xl shadow
+             hover:bg-orange-700 font-semibold">
+      📦 Add Full Carton
+    </button>
 
-    <% if (category) { 
-      const cat = categories.find(c => c.id == category);
-    %>
-      <div>
-        <p class="text-sm text-gray-500">Selected Category</p>
-        <h2 class="text-2xl font-bold"><%= cat.name %></h2>
-      </div>
+  <% } else { %>
+    <h2 class="text-2xl font-bold">All Products</h2>
+  <% } %>
 
-      <!-- ADD FULL CARTON -->
-      <button
-        id="addCategoryCarton"
-        data-category="<%= category %>"
-        class="px-6 py-3 bg-orange-600 text-white rounded-xl shadow
-               hover:bg-orange-700 font-semibold">
-        📦 Add Full Carton
-      </button>
+</div>
 
-    <% } else { %>
-      <h2 class="text-2xl font-bold">All Products</h2>
-    <% } %>
+<!-- CATEGORY TABS -->
+<div class="flex gap-3 mb-4 overflow-x-auto whitespace-nowrap pb-2">
+  <% categories.forEach(c => { %>
+    <a href="/products?category=<%= c.id %>"
+      class="px-4 py-2 rounded-xl shadow
+      <%= category == c.id
+        ? 'bg-red-600 text-white'
+        : 'bg-white hover:bg-gray-200' %>">
+      <%= c.name %>
+    </a>
+  <% }) %>
+</div>
 
-  </div>
-
-  <!-- CATEGORY TABS -->
-  <div class="flex gap-3 mb-4 overflow-x-auto whitespace-nowrap pb-2">
-    <% categories.forEach(c => { %>
-      <a href="/products?category=<%= c.id %>"
-        class="px-4 py-2 rounded-xl shadow
-        <%= category == c.id
-          ? 'bg-red-600 text-white'
-          : 'bg-white hover:bg-gray-200' %>">
-        <%= c.name %>
-      </a>
-    <% }) %>
-  </div>
-
-  <!-- PRODUCTS GRID -->
- <!-- PRODUCTS GRID -->
+<!-- PRODUCTS GRID -->
 <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
 
   <% products.forEach(p => { %>
 
-    <a href="/product/<%= p.id %>" class="block">
+    <a href="/product/<%= p.id %>?fromCategory=<%= category || '' %>"
+      class="block product-card"
+      data-name="<%= p.name.toLowerCase() %>">
+   
+
       <div class="bg-white p-4 rounded-2xl shadow hover:shadow-lg transition">
 
         <div class="h-44 bg-gray-50 flex items-center justify-center rounded-xl">
@@ -134,11 +135,26 @@
 
 </div>
 
+</div>
 
-<!-- SCRIPT -->
+<!-- SCRIPTS -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 
+  /* 🔍 SEARCH LOGIC */
+  const searchInput = document.getElementById("searchInput");
+  const products = document.querySelectorAll(".product-card");
+
+  searchInput.addEventListener("input", () => {
+    const value = searchInput.value.toLowerCase();
+
+    products.forEach(p => {
+      const name = p.dataset.name;
+      p.style.display = name.includes(value) ? "block" : "none";
+    });
+  });
+
+  /* 📦 ADD FULL CARTON */
   const popup = document.getElementById("successPopup");
   const btn = document.getElementById("addCategoryCarton");
 
@@ -155,9 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const res = await fetch(`/add-full-carton/${categoryId}`, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        }
+        headers: { "Content-Type": "application/json" }
       });
 
       const data = await res.json();
@@ -170,7 +184,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
     } catch (err) {
-      console.error(err);
       alert("Server error");
     }
   });

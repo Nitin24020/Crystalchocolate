@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <title>Cart</title>
@@ -12,131 +13,147 @@
 
     <h1 class="text-2xl font-bold mb-4">🛒 Your Cart</h1>
 
-    <% if (items.length === 0) { %>
+    <% if (items.length===0) { %>
       <div class="bg-white p-6 rounded shadow text-center">
         <p>Your cart is empty.</p>
         <a href="/products" class="text-blue-600 font-semibold underline">Shop Now</a>
       </div>
-    <% } else { %>
+      <% } else { %>
 
-      <!-- CART ITEMS (CARD STYLE) -->
-      <div class="space-y-4">
+        <!-- CART ITEMS -->
+        <div class="space-y-4">
+          <% items.forEach(it=> { %>
+            <div class="bg-white p-5 rounded-xl shadow flex flex-col md:flex-row gap-4" data-key="<%= it.key %>">
 
-        <% items.forEach(it => { %>
-          <div class="bg-white p-4 rounded-xl shadow flex flex-col md:flex-row md:items-center gap-4">
-            
-            <!-- IMAGE -->
-            <img src="<%= it.image %>" class="w-20 h-20 rounded object-cover">
+              <!-- IMAGE -->
+              <img id="img-<%= it.key %>" src="<%= it.image %>"
+                class="w-full md:w-32 h-32 object-contain border rounded-lg" />
 
-            <!-- DETAILS -->
-            <div class="flex-1 flex flex-col gap-1">
-              <span class="font-semibold text-lg"><%= it.categoryName %></span>
-              <span class="text-blue-700 font-medium">Carton Size: <%= it.cartoon_size %></span>
-              <span class="text-purple-700 font-medium">Pieces: <%= it.totalPieces %></span>
-              <span>Price: ₹ <%= it.price %> / piece</span>
+              <!-- DETAILS -->
+              <div class="flex-1 space-y-1">
+                <h3 class="text-xl font-bold">
+                  <%= it.name %>
+                </h3>
 
-              <!-- QTY CONTROLS -->
-              <div class="flex items-center gap-2 mt-2">
-                <form method="post" action="/cart/dec/<%= it.categoryKey %>">
-                  <button class="px-3 bg-gray-200 rounded font-bold text-lg">−</button>
-                </form>
+                <p>📦 Carton Size: <span class="font-semibold">
+                    <%= it.cartonSize %>
+                  </span></p>
+                <p>🧮 Qty: <span class="font-semibold" id="qty-<%= it.key %>">
+                    <%= it.qty %>
+                  </span></p>
+                <p>🔢 Pieces: <span class="font-semibold text-purple-700" id="pieces-<%= it.key %>">
+                    <%= it.totalPieces %>
+                  </span></p>
+                <p>💰 Price: ₹ <%= it.price %> / piece</p>
 
-                <span class="font-semibold w-6 text-center"><%= it.qty %></span>
+                <!-- QTY CONTROLS -->
+                <div class="flex items-center gap-3 mt-2">
+                  <button onclick="updateQty('<%= it.key %>', 'dec')"
+                    class="px-3 py-1 bg-gray-200 rounded text-lg font-bold">−</button>
 
-                <form method="post" action="/cart/inc/<%= it.categoryKey %>">
-                  <button class="px-3 bg-green-600 text-white rounded font-bold text-lg">+</button>
+                  <span class="font-bold text-lg" id="qty-<%= it.key %>">
+                    <%= it.qty %>
+                  </span>
+
+                  <button onclick="updateQty('<%= it.key %>', 'inc')"
+                    class="px-3 py-1 bg-green-600 text-white rounded text-lg font-bold">+</button>
+                </div>
+
+              </div>
+
+              <!-- TOTAL -->
+              <div class="flex flex-col justify-between items-end">
+                <p class="text-xl font-bold text-green-700" id="lineTotal-<%= it.key %>">
+                  ₹ <%= it.lineTotal %>
+                </p>
+
+                <form method="post" action="/cart/remove/<%= it.key %>">
+                  <button class="bg-red-500 text-white px-4 py-1 rounded">
+                    Remove
+                  </button>
                 </form>
               </div>
             </div>
+            <% }) %>
 
-            <!-- TOTAL & REMOVE -->
-            <div class="flex flex-col items-end gap-2 mt-2 md:mt-0">
-              <span class="font-bold text-green-700 text-lg">₹ <%= it.lineTotal %></span>
-              <form method="post" action="/cart/remove/<%= it.categoryKey %>">
-                <button class="bg-red-500 text-white px-3 py-1 rounded">Remove</button>
-              </form>
+
+        </div>
+
+
+
+        <!-- CART TOTAL -->
+        <div class="bg-white p-4 rounded-xl shadow mt-4 text-right">
+          <p class="text-lg" id="subtotal">Subtotal: ₹ <%= subtotal %>
+          </p>
+          <p class="text-2xl font-bold" id="total">Payable: ₹ <%= total %>
+          </p>
+
+        </div>
+
+
+
+
+        <!-- CUSTOMER DETAILS -->
+        <div class="bg-white p-6 rounded-xl shadow mt-6">
+          <h2 class="text-lg font-bold mb-4 text-gray-800">👤 Customer Details</h2>
+
+          <form method="post" action="/place-order" onsubmit="return validateForm()" class="space-y-4">
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <!-- NAME -->
+              <div>
+                <label class="text-sm font-semibold">Name</label>
+                <input id="name" name="name" class="border p-2 w-full rounded-lg" placeholder="Enter name">
+                <p id="nameErr" class="text-red-600 text-xs mt-1 hidden"></p>
+              </div>
+
+              <!-- PHONE -->
+              <div>
+                <label class="text-sm font-semibold">Phone</label>
+                <input id="phone" name="phone" class="border p-2 w-full rounded-lg"
+                  placeholder="10 digit mobile number">
+                <p id="phoneErr" class="text-red-600 text-xs mt-1 hidden"></p>
+              </div>
             </div>
 
-          </div>
-        <% }) %>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <!-- PIN CODE -->
+              <div>
+                <label class="text-sm font-semibold">PIN Code</label>
+                <input id="pincode" name="pincode" class="border p-2 w-full rounded-lg transition"
+                  placeholder="Enter 6-digit PIN code">
+                <p id="pinErr" class="text-red-600 text-xs mt-1 hidden"></p>
+              </div>
 
-      </div>
+              <!-- CITY -->
+              <div>
+                <label class="text-sm font-semibold">City</label>
+                <input id="city" name="city" class="border p-2 w-full rounded-lg bg-gray-100" readonly>
+              </div>
 
-      <!-- CART TOTALS -->
-      <div class="bg-white p-4 rounded-xl shadow mt-4 text-center md:text-right space-y-1">
-        <p class="font-semibold">Subtotal: ₹ <%= subtotal %></p>
-        <p class="text-xl font-bold">Payable: ₹ <%= total %></p>
-      </div>
-
-      <!-- CUSTOMER DETAILS -->
-      <div class="bg-white p-6 rounded-xl shadow mt-6">
-        <h2 class="text-lg font-bold mb-4 text-gray-800">👤 Customer Details</h2>
-
-        <form method="post" action="/place-order" onsubmit="return validateForm()" class="space-y-4">
-
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <!-- NAME -->
-            <div>
-              <label class="text-sm font-semibold">Name</label>
-              <input id="name" name="name"
-                     class="border p-2 w-full rounded-lg"
-                     placeholder="Enter name">
-              <p id="nameErr" class="text-red-600 text-xs mt-1 hidden"></p>
+              <!-- STATE -->
+              <div>
+                <label class="text-sm font-semibold">State</label>
+                <input id="state" name="state" class="border p-2 w-full rounded-lg bg-gray-100" readonly>
+              </div>
             </div>
 
-            <!-- PHONE -->
-            <div>
-              <label class="text-sm font-semibold">Phone</label>
-              <input id="phone" name="phone"
-                     class="border p-2 w-full rounded-lg"
-                     placeholder="10 digit mobile number">
-              <p id="phoneErr" class="text-red-600 text-xs mt-1 hidden"></p>
-            </div>
-          </div>
+            <button class="w-full bg-blue-600 text-white py-3 rounded-xl font-semibold">
+              🧾 Place Order
+            </button>
+          </form>
+        </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <!-- PIN CODE -->
-            <div>
-              <label class="text-sm font-semibold">PIN Code</label>
-              <input id="pincode" name="pincode"
-                     class="border p-2 w-full rounded-lg transition"
-                     placeholder="Enter 6-digit PIN code">
-              <p id="pinErr" class="text-red-600 text-xs mt-1 hidden"></p>
-            </div>
+        <!-- ACTIONS -->
+        <div class="flex flex-col md:flex-row justify-between gap-2 mt-4">
+          <a href="/products" class="px-4 py-2 bg-gray-300 rounded text-center">← Continue Shopping</a>
 
-            <!-- CITY -->
-            <div>
-              <label class="text-sm font-semibold">City</label>
-              <input id="city" name="city"
-                     class="border p-2 w-full rounded-lg bg-gray-100"
-                     readonly>
-            </div>
+          <form method="post" action="/cart/clear">
+            <button class="px-4 py-2 bg-red-600 text-white rounded w-full md:w-auto">Clear Cart</button>
+          </form>
+        </div>
 
-            <!-- STATE -->
-            <div>
-              <label class="text-sm font-semibold">State</label>
-              <input id="state" name="state"
-                     class="border p-2 w-full rounded-lg bg-gray-100"
-                     readonly>
-            </div>
-          </div>
-
-          <button class="w-full bg-blue-600 text-white py-3 rounded-xl font-semibold">
-            🧾 Place Order
-          </button>
-        </form>
-      </div>
-
-      <!-- ACTIONS -->
-      <div class="flex flex-col md:flex-row justify-between gap-2 mt-4">
-        <a href="/products" class="px-4 py-2 bg-gray-300 rounded text-center">← Continue Shopping</a>
-
-        <form method="post" action="/cart/clear">
-          <button class="px-4 py-2 bg-red-600 text-white rounded w-full md:w-auto">Clear Cart</button>
-        </form>
-      </div>
-
-    <% } %>
+        <% } %>
   </div>
 
   <!-- VALIDATION SCRIPT (UNCHANGED) -->
@@ -204,5 +221,52 @@
     });
   </script>
 
+
+
+  <!-- ✅ UPDATE QTY WITHOUT PAGE SCROLL -->
+  <script>
+    async function updateQty(key, action) {
+      try {
+        const res = await fetch(`/cart/${action}/${key}`, { method: "POST" });
+        const data = await res.json();
+
+        if (data.qty === 0) {
+          // remove item from DOM if qty is 0
+          const itemDiv = document.querySelector(`div[data-key='${key}']`);
+          if (itemDiv) itemDiv.remove();
+        } else {
+          // Update quantity
+          const qtySpan = document.querySelector(`#qty-${key}`);
+          if (qtySpan) qtySpan.innerText = data.qty;
+
+          // Update total pieces
+          const piecesSpan = document.querySelector(`#pieces-${key}`);
+          if (piecesSpan) piecesSpan.innerText = data.totalPieces;
+
+          // Update line total
+          const lineTotal = document.querySelector(`#lineTotal-${key}`);
+          if (lineTotal) lineTotal.innerText = "₹ " + data.lineTotal;
+
+          // Update image
+          const img = document.querySelector(`#img-${key}`);
+          if (img) img.src = data.image;
+        }
+
+        // Update subtotal and total
+        const subtotalEl = document.querySelector("#subtotal");
+        const totalEl = document.querySelector("#total");
+        if (subtotalEl) subtotalEl.innerText = "₹ " + data.subtotal;
+        if (totalEl) totalEl.innerText = "₹ " + data.total;
+
+      } catch (err) {
+        console.error("Failed to update cart:", err);
+      }
+    }
+  </script>
+
+
+
+
 </body>
+
 </html>

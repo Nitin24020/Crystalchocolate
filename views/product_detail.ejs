@@ -3,9 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>
-    <%= product.name %>
-  </title>
+  <title><%= product.name %></title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -14,88 +12,97 @@
 
   <div class="max-w-5xl mx-auto p-4">
 
-    <!-- Back button -->
-    <a href="/products" class="text-sm mb-4 inline-block hover:underline">← Back to products</a>
+    <!-- 🔙 SMART BACK BUTTON -->
+    <% if (fromCategory) { %>
+      <a href="/products?category=<%= fromCategory %>"
+         class="text-sm mb-4 inline-block hover:underline">
+        ← Back to Category
+      </a>
+    <% } else { %>
+      <a href="/products"
+         class="text-sm mb-4 inline-block hover:underline">
+        ← Back to Products
+      </a>
+    <% } %>
 
     <div class="bg-white p-6 rounded-xl shadow-lg grid grid-cols-1 md:grid-cols-2 gap-8">
 
       <!-- Product Image Section -->
       <div class="flex flex-col gap-4">
 
-        <!-- Main Image -->
         <div class="border rounded-lg overflow-hidden">
-          <img src="<%= product.image %>" class="w-full h-80 object-contain hover:scale-105 transition-transform" />
+          <img src="<%= product.image %>"
+               class="w-full h-80 object-contain hover:scale-105 transition-transform" />
         </div>
 
-        <% if (product.images && product.images.length> 1) { %>
-          <!-- Thumbnails -->
+        <% if (product.images && product.images.length > 1) { %>
           <div class="flex gap-3">
             <% product.images.forEach(function(img) { %>
-              <img src="<%= img %>" class="w-16 h-16 border rounded object-cover hover:opacity-70 cursor-pointer" />
-              <% }) %>
+              <img src="<%= img %>"
+                   class="w-16 h-16 border rounded object-cover hover:opacity-70 cursor-pointer" />
+            <% }) %>
           </div>
-          <% } %>
+        <% } %>
 
       </div>
 
       <!-- Product Info Section -->
-     <!-- Product Info Section -->
-<div>
+      <div>
 
-  <h1 class="text-3xl font-bold">
-    <%= product.name %>
-  </h1>
+        <h1 class="text-3xl font-bold"><%= product.name %></h1>
 
-  <!-- Stock badge -->
-  <p class="mt-2">
-    <% if (product.stock > 0) { %>
-      <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">In Stock</span>
-    <% } else { %>
-      <span class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm">Out of Stock</span>
-    <% } %>
-  </p>
+        <!-- Stock badge -->
+        <p class="mt-2">
+          <% if (product.stock > 0) { %>
+            <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">
+              In Stock
+            </span>
+          <% } else { %>
+            <span class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm">
+              Out of Stock
+            </span>
+          <% } %>
+        </p>
 
-  <!-- Price -->
-  <p class="mt-4 font-bold text-3xl text-blue-600">
-    Rs. <%= product.price %>
-  </p>
+        <!-- Price -->
+        <p class="mt-4 font-bold text-3xl text-blue-600">
+          ₹ <%= product.price %>
+        </p>
 
-  <!-- Description -->
-  <!-- Description & Details (Plain text, new lines) -->
-  <div class="mt-5 text-gray-700 leading-7 space-y-1 text-[15px]">
+        <!-- Description & Details -->
+        <div class="mt-5 text-gray-700 leading-7 space-y-1 text-[15px]">
 
+          <% if (product.description) { %>
+            <p class="whitespace-pre-line"><%= product.description %></p>
+          <% } %>
 
-  <% if (product.description) { %>
-    <p class="whitespace-pre-line"><%= product.description %></p>
+          <% if (product.packaging) { %>
+            <p>📦 Packaging Type: <%= product.packaging %></p>
+          <% } %>
 
-  <% } %>
+          <% if (product.origin) { %>
+            <p>🌍 Country of Origin: <%= product.origin %></p>
+          <% } %>
 
-  <% if (product.packaging) { %>
-    <p>📦 Packaging Type: <%= product.packaging %></p>
-  <% } %>
+          <% if (product.shape) { %>
+            <p>🔷 Shape: <%= product.shape %></p>
+          <% } %>
 
-  <% if (product.origin) { %>
-    <p>🌍 Country of Origin: <%= product.origin %></p>
-  <% } %>
+          <% if (product.type) { %>
+            <p>🍫 Type: <%= product.type %></p>
+          <% } %>
 
-  <% if (product.shape) { %>
-    <p>🔷 Shape: <%= product.shape %></p>
-  <% } %>
+          <% if (product.color) { %>
+            <p>🎨 Color: <%= product.color %></p>
+          <% } %>
 
-  <% if (product.type) { %>
-    <p>🍫 Type: <%= product.type %></p>
-  <% } %>
+        </div>
 
-  <% if (product.color) { %>
-    <p>🎨 Color: <%= product.color %></p>
-  <% } %>
+      </div>
 
-</div>
+    </div>
 
-</div>
-</div>
+  </div>
 
-  
 </body>
-
 </html>

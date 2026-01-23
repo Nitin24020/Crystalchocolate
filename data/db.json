@@ -16,11 +16,6 @@
       "sort_order": 1
     },
     {
-      "id": 10,
-      "name": "jelly",
-      "sort_order": 4
-    },
-    {
       "id": 11,
       "name": "Jelly Jar",
       "sort_order": 5
@@ -29,21 +24,21 @@
   "products": [
     {
       "id": 11,
-      "name": "Imli Jelly1",
+      "name": "Imli Jelly",
       "category": 5,
       "price": 40,
-      "cartoon_size": 36,
-      "image": "/media/X9ITY376J.png",
+      "cartoon_size": 40,
+      "image": "/media/yJTnQwqct.webp",
       "stock": 10,
-      "description": ""
+      "description": "QTY Per Cartoon: 40 Boxes\r\nPackaging Size: 80 Piece/Box\r\nNet Weight: 320G Per Box\r\nMRP: Per Box ₹80\r\nPrice Per Piece: ₹1"
     },
     {
       "id": 12,
       "name": "Guava Jelly",
       "category": 5,
-      "description": "",
+      "description": "QTY Per Cartoon: 40 Boxes\r\nPackaging Size: 80 Piece/Box\r\nNet Weight: 320G Per Box\r\nMRP: Per Box ₹80\r\nPrice Per Piece: ₹1",
       "price": 40,
-      "cartoon_size": 36,
+      "cartoon_size": 40,
       "image": "/media/u523s2RGY.png",
       "stock": 10
     },
@@ -51,21 +46,21 @@
       "id": 13,
       "name": "Strawberry Jelly",
       "category": 5,
-      "description": "",
+      "description": "QTY Per Cartoon: 40 Boxes\r\nPackaging Size: 80 Piece/Box\r\nNet Weight: 320G Per Box\r\nMRP: Per Box ₹80\r\nPrice Per Piece: ₹1",
       "price": 40,
-      "cartoon_size": 36,
+      "cartoon_size": 40,
       "image": "/media/McLSZg3V9.png",
-      "stock": 10
+      "stock": 7
     },
     {
       "id": 14,
       "name": "Melon Jelly",
       "category": 5,
-      "description": "",
+      "description": "QTY Per Cartoon: 40 Boxes\r\nPackaging Size: 80 Piece/Box\r\nNet Weight: 320G Per Box\r\nMRP: Per Box ₹80\r\nPrice Per Piece: ₹1",
       "price": 40,
-      "cartoon_size": 36,
-      "image": "/media/j1XEJMVa1.png",
-      "stock": 10
+      "cartoon_size": 40,
+      "image": "/media/6NPju_UWf.webp",
+      "stock": 7
     },
     {
       "id": 18,
@@ -95,7 +90,7 @@
       "price": 48,
       "cartoon_size": 36,
       "image": "/media/YZ1bK9w6M.webp",
-      "stock": 20
+      "stock": 13
     },
     {
       "id": 21,
@@ -105,7 +100,7 @@
       "price": 48,
       "cartoon_size": 36,
       "image": "/media/-GwI_lgWg.webp",
-      "stock": 20
+      "stock": 16
     },
     {
       "id": 22,
@@ -122,10 +117,10 @@
       "name": "Pista Toffee Box",
       "category": 8,
       "description": "QTY Per Cartoon: 36 Boxes\r\nPackaging Size: 100 Piece/Box\r\nNet Weight: 350G Per Box\r\nMRP: Per Box ₹100\r\nPrice Per Piece: ₹1",
-      "price": 50,
-      "cartoon_size": 20,
+      "price": 48,
+      "cartoon_size": 36,
       "image": "/media/Rwtdi33jr.webp",
-      "stock": 20
+      "stock": 17
     },
     {
       "id": 24,
@@ -133,7 +128,7 @@
       "category": 8,
       "description": "QTY Per Cartoon: 36 Boxes\r\nPackaging Size: 100 Piece/Box\r\nNet Weight: 350G Per Box\r\nMRP: Per Box ₹100\r\nPrice Per Piece: ₹1",
       "price": 48,
-      "cartoon_size": 20,
+      "cartoon_size": 36,
       "image": "/media/EBv3fq79z.webp",
       "stock": 20
     },
@@ -143,8 +138,98 @@
       "category": 8,
       "description": "QTY Per Cartoon: 36 Boxes\r\nPackaging Size: 100 Piece/Box\r\nNet Weight: 350G Per Box\r\nMRP: Per Box ₹100\r\nPrice Per Piece: ₹1",
       "price": 48,
-      "cartoon_size": 20,
+      "cartoon_size": 36,
       "image": "/media/cdywFJRF1.webp",
+      "stock": 20
+    },
+    {
+      "id": 26,
+      "name": "Creamy Eclair Toffee",
+      "category": 6,
+      "description": "QTY Per Cartoon: 36 Packet\r\nPackaging Size: 100 Piece/Packet\r\nNet Weight: 350G Per Packet\r\nMRP: Per Box ₹100\r\nPrice Per Piece: ₹1",
+      "price": 50,
+      "cartoon_size": 36,
+      "image": "/media/iVHkVc9KT.webp",
+      "stock": 20
+    },
+    {
+      "id": 27,
+      "name": "Cardamon Eclair Toffee",
+      "category": 6,
+      "description": "QTY Per Cartoon: 36 Packet\r\nPackaging Size: 100 Piece/Packet\r\nNet Weight: 350G Per Packet\r\nMRP: Per Box ₹100\r\nPrice Per Piece: ₹1",
+      "price": 50,
+      "cartoon_size": 36,
+      "image": "/media/jbNUQokqk.webp",
+      "stock": 20
+    },
+    {
+      "id": 28,
+      "name": "Strawberry  Eclair Toffee",
+      "category": 6,
+      "description": "QTY Per Cartoon: 36 Packet\r\nPackaging Size: 100 Piece/Packet\r\nNet Weight: 350G Per Packet\r\nMRP: Per Box ₹100\r\nPrice Per Piece: ₹1",
+      "price": 50,
+      "cartoon_size": 36,
+      "image": "/media/FzZtU7zOM.webp",
+      "stock": 17
+    },
+    {
+      "id": 29,
+      "name": "Saffron Eclair Toffee",
+      "category": 6,
+      "description": "QTY Per Cartoon: 36 Packet\r\nPackaging Size: 100 Piece/Packet\r\nNet Weight: 350G Per Packet\r\nMRP: Per Box ₹100\r\nPrice Per Piece: ₹1",
+      "price": 50,
+      "cartoon_size": 36,
+      "image": "/media/2hDKdNSU2.webp",
+      "stock": 15
+    },
+    {
+      "id": 30,
+      "name": "Eclair Classic Toffee",
+      "category": 6,
+      "description": "QTY Per Cartoon: 36 Packet\r\nPackaging Size: 100 Piece/Packet\r\nNet Weight: 350G Per Packet\r\nMRP: Per Box ₹100\r\nPrice Per Piece: ₹1",
+      "price": 50,
+      "cartoon_size": 36,
+      "image": "/media/pL7_-7ofQ.webp",
+      "stock": 20
+    },
+    {
+      "id": 31,
+      "name": "Imli Jelly Blast",
+      "category": 11,
+      "description": "QTY Per Cartoon: 20 Jar\r\nPackaging Size: 150 Piece/Jar\r\nNet Weight: 600G Per Jar\r\nMRP: Per Box ₹150\r\nPrice Per Piece: ₹1",
+      "price": 80,
+      "cartoon_size": 20,
+      "image": "/media/s0XqubH4d.webp",
+      "stock": 20
+    },
+    {
+      "id": 32,
+      "name": "Guava Jelly Blast ",
+      "category": 11,
+      "description": "QTY Per Cartoon: 20 Jar\r\nPackaging Size: 150 Piece/Jar\r\nNet Weight: 600G Per Jar\r\nMRP: Per Box ₹150\r\nPrice Per Piece: ₹1",
+      "price": 80,
+      "cartoon_size": 20,
+      "image": "/media/4o0YBbRpG.webp",
+      "stock": 17
+    },
+    {
+      "id": 33,
+      "name": "Melon Jelly Blast",
+      "category": 11,
+      "description": "QTY Per Cartoon: 20 Jar\r\nPackaging Size: 150 Piece/Jar\r\nNet Weight: 600G Per Jar\r\nMRP: Per Box ₹150\r\nPrice Per Piece: ₹1",
+      "price": 80,
+      "cartoon_size": 20,
+      "image": "/media/-2hmSloil.webp",
+      "stock": 17
+    },
+    {
+      "id": 34,
+      "name": "Strawberry Jelly Blast",
+      "category": 11,
+      "description": "QTY Per Cartoon: 20 Jar\r\nPackaging Size: 150 Piece/Jar\r\nNet Weight: 600G Per Jar\r\nMRP: Per Box ₹150\r\nPrice Per Piece: ₹1",
+      "price": 80,
+      "cartoon_size": 20,
+      "image": "/media/jg61zKuQB.webp",
       "stock": 20
     }
   ],
@@ -1211,6 +1296,144 @@
       "subtotal": 4000,
       "total": 4000,
       "date": "2026-01-20T07:47:48.754Z",
+      "status": "Pending"
+    },
+    {
+      "id": "oQgL1q3Bw",
+      "customer": "Nitin",
+      "phone": "9712155265",
+      "address": {
+        "pincode": "403001",
+        "city": "North Goa",
+        "state": "Goa"
+      },
+      "items": [
+        {
+          "productId": 21,
+          "categoryId": 8,
+          "image": "/media/-GwI_lgWg.webp",
+          "qty": 4,
+          "cartoon_size": 36,
+          "price": 48,
+          "totalPieces": 144,
+          "total": 6912
+        },
+        {
+          "productId": 29,
+          "categoryId": 6,
+          "image": "/media/2hDKdNSU2.webp",
+          "qty": 5,
+          "cartoon_size": 36,
+          "price": 50,
+          "totalPieces": 180,
+          "total": 9000
+        },
+        {
+          "productId": 13,
+          "categoryId": 5,
+          "image": "/media/McLSZg3V9.png",
+          "qty": 3,
+          "cartoon_size": 40,
+          "price": 40,
+          "totalPieces": 120,
+          "total": 4800
+        },
+        {
+          "productId": 33,
+          "categoryId": 11,
+          "image": "/media/-2hmSloil.webp",
+          "qty": 3,
+          "cartoon_size": 20,
+          "price": 80,
+          "totalPieces": 60,
+          "total": 4800
+        }
+      ],
+      "subtotal": 25512,
+      "total": 25512,
+      "date": "2026-01-23T05:23:34.101Z",
+      "status": "Pending"
+    },
+    {
+      "id": "4NAorHhH4",
+      "customer": "Mahavir Sales",
+      "phone": "9712155265",
+      "address": {
+        "pincode": "388001",
+        "city": "Anand",
+        "state": "Gujarat"
+      },
+      "items": [
+        {
+          "productId": 20,
+          "categoryId": 8,
+          "image": "/media/YZ1bK9w6M.webp",
+          "qty": 7,
+          "cartoon_size": 36,
+          "price": 48,
+          "totalPieces": 252,
+          "total": 12096
+        }
+      ],
+      "subtotal": 12096,
+      "total": 12096,
+      "date": "2026-01-23T08:23:45.205Z",
+      "status": "Pending"
+    },
+    {
+      "id": "jUAAPzFxu",
+      "customer": "Nitin",
+      "phone": "9713817272",
+      "address": {
+        "pincode": "388001",
+        "city": "Anand",
+        "state": "Gujarat"
+      },
+      "items": [
+        {
+          "productId": 23,
+          "categoryId": 8,
+          "image": "/media/Rwtdi33jr.webp",
+          "qty": 3,
+          "cartoon_size": 36,
+          "price": 48,
+          "totalPieces": 108,
+          "total": 5184
+        },
+        {
+          "productId": 28,
+          "categoryId": 6,
+          "image": "/media/FzZtU7zOM.webp",
+          "qty": 3,
+          "cartoon_size": 36,
+          "price": 50,
+          "totalPieces": 108,
+          "total": 5400
+        },
+        {
+          "productId": 14,
+          "categoryId": 5,
+          "image": "/media/6NPju_UWf.webp",
+          "qty": 3,
+          "cartoon_size": 40,
+          "price": 40,
+          "totalPieces": 120,
+          "total": 4800
+        },
+        {
+          "productId": 32,
+          "categoryId": 11,
+          "image": "/media/4o0YBbRpG.webp",
+          "qty": 3,
+          "cartoon_size": 20,
+          "price": 80,
+          "totalPieces": 60,
+          "total": 4800
+        }
+      ],
+      "subtotal": 20184,
+      "total": 20184,
+      "date": "2026-01-23T08:25:38.390Z",
       "status": "Pending"
     }
   ]

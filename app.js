@@ -46,6 +46,41 @@ function buildCartItems(req, DB) {
   return items;
 }
 
+function sendCartJSON(req, res, key) {
+  const items = req.session.cart.items;
+  const products = req.session.cart.products;
+
+  let subtotal = 0;
+
+  for (let k in items) {
+    const p = products[k];
+    subtotal += items[k] * p.cartoon_size * p.price;
+  }
+
+  if (!items[key]) {
+    return res.json({
+      qty: 0,
+      totalPieces: 0,
+      lineTotal: 0,
+      subtotal,
+      total: subtotal
+    });
+  }
+
+  const qty = items[key];
+  const prod = products[key];
+
+  res.json({
+    qty,
+    totalPieces: qty * prod.cartoon_size,
+    lineTotal: qty * prod.cartoon_size * prod.price,
+    subtotal,
+    total: subtotal,
+    image: prod.image
+  });
+}
+
+
 function getNextId(list) {
   if (!list || list.length === 0) return 1;
   return Math.max(...list.map(i => i.id)) + 1;
@@ -159,6 +194,7 @@ app.get("/products", (req, res) => {
 
 
 // PRODUCT DETAIL PAGE
+
 app.get("/product/:id", (req, res) => {
   const DB = readData();
   const id = parseInt(req.params.id);
@@ -168,10 +204,10 @@ app.get("/product/:id", (req, res) => {
 
   res.render("product_detail", {
     product,
+    fromCategory: req.query.fromCategory || null,
     cart_count: getCartCount(req)
   });
 });
-
 
 
 app.post("/add-full-carton/:categoryId", (req, res) => {
@@ -207,6 +243,7 @@ app.post("/add-full-carton/:categoryId", (req, res) => {
 
 app.get("/cart", (req, res) => {
   initCart(req);
+
   const items = [];
   let subtotal = 0;
 
@@ -218,31 +255,29 @@ app.get("/cart", (req, res) => {
     const prod = cartProducts[key];
     if (!prod) continue;
 
-    const totalPieces = qty * prod.cartoon_size;
+    const cartonSize = prod.cartoon_size;
+    const totalPieces = cartonSize * qty;
     const lineTotal = totalPieces * prod.price;
+
     subtotal += lineTotal;
 
     items.push({
-      categoryKey: key,
-      categoryName: prod.categoryName,
+      key,
+      name: prod.categoryName,
       image: prod.image,
       qty,
-      cartoon_size: prod.cartoon_size,
+      cartonSize,
       totalPieces,
       price: prod.price,
       lineTotal
     });
   }
 
-  const errorMsg = req.session.errorMsg || null;
-  req.session.errorMsg = null;
-
   res.render("cart", {
     items,
     subtotal,
     total: subtotal,
-    cart_count: getCartCount(req),
-    errorMsg
+    cart_count: getCartCount(req)
   });
 });
 
@@ -251,26 +286,25 @@ app.get("/cart", (req, res) => {
 app.post("/cart/inc/:key", (req, res) => {
   initCart(req);
   const key = req.params.key;
-  if (!req.session.cart.items[key]) req.session.cart.items[key] = 0;
 
-  req.session.cart.items[key] += 1;
+  req.session.cart.items[key] = (req.session.cart.items[key] || 0) + 1;
 
-  // Update product info with a new random product from this category
   const categoryId = parseInt(key.split("_")[1]);
   const DB = readData();
-  const productsInCategory = DB.products.filter(p => p.category == categoryId);
-  if (productsInCategory.length > 0) {
-    const product = productsInCategory[Math.floor(Math.random() * productsInCategory.length)];
-    req.session.cart.products[key] = {
-      categoryName: DB.categories.find(c => c.id == categoryId).name,
-      image: product.image,
-      price: product.price,
-      cartoon_size: product.cartoon_size
-    };
-  }
 
-  res.redirect("/cart");
+  const productsInCategory = DB.products.filter(p => p.category == categoryId);
+  const product = productsInCategory[Math.floor(Math.random() * productsInCategory.length)];
+
+  req.session.cart.products[key] = {
+    categoryName: DB.categories.find(c => c.id == categoryId).name,
+    image: product.image,
+    price: product.price,
+    cartoon_size: product.cartoon_size
+  };
+
+  sendCartJSON(req, res, key);
 });
+
 
 // DECREMENT QTY
 app.post("/cart/dec/:key", (req, res) => {
@@ -280,26 +314,24 @@ app.post("/cart/dec/:key", (req, res) => {
   if (req.session.cart.items[key] > 1) {
     req.session.cart.items[key] -= 1;
 
-    // Update product info with a new random product from this category
     const categoryId = parseInt(key.split("_")[1]);
     const DB = readData();
-    const productsInCategory = DB.products.filter(p => p.category == categoryId);
-    if (productsInCategory.length > 0) {
-      const product = productsInCategory[Math.floor(Math.random() * productsInCategory.length)];
-      req.session.cart.products[key] = {
-        categoryName: DB.categories.find(c => c.id == categoryId).name,
-        image: product.image,
-        price: product.price,
-        cartoon_size: product.cartoon_size
-      };
-    }
 
+    const productsInCategory = DB.products.filter(p => p.category == categoryId);
+    const product = productsInCategory[Math.floor(Math.random() * productsInCategory.length)];
+
+    req.session.cart.products[key] = {
+      categoryName: DB.categories.find(c => c.id == categoryId).name,
+      image: product.image,
+      price: product.price,
+      cartoon_size: product.cartoon_size
+    };
   } else {
     delete req.session.cart.items[key];
     delete req.session.cart.products[key];
   }
 
-  res.redirect("/cart");
+  sendCartJSON(req, res, key);
 });
 
 
