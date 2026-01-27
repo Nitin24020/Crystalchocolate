@@ -32,14 +32,16 @@
 
         <div class="border rounded-lg overflow-hidden">
           <img src="<%= product.image %>"
-               class="w-full h-80 object-contain hover:scale-105 transition-transform" />
+     class="w-full h-80 object-contain hover:scale-105 transition-transform main-product-img" />
+
         </div>
 
         <% if (product.images && product.images.length > 1) { %>
           <div class="flex gap-3">
             <% product.images.forEach(function(img) { %>
               <img src="<%= img %>"
-                   class="w-16 h-16 border rounded object-cover hover:opacity-70 cursor-pointer" />
+     class="w-16 h-16 border rounded object-cover hover:opacity-70 cursor-pointer product-thumbnail" />
+
             <% }) %>
           </div>
         <% } %>
@@ -103,6 +105,19 @@
     </div>
 
   </div>
+
+  <script>
+    // Product thumbnail click → change main image
+    const mainImg = document.querySelector(".main-product-img");
+    const thumbnails = document.querySelectorAll(".product-thumbnail");
+  
+    thumbnails.forEach(thumbnail => {
+      thumbnail.addEventListener("click", () => {
+        mainImg.src = thumbnail.src;
+      });
+    });
+  </script>
+  
 
 </body>
 </html>
