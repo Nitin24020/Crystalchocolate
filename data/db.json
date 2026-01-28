@@ -16,9 +16,19 @@
       "sort_order": 1
     },
     {
-      "id": 11,
+      "id": 9,
       "name": "Jelly Jar",
+      "sort_order": 4
+    },
+    {
+      "id": 10,
+      "name": "Small Gift Box",
       "sort_order": 5
+    },
+    {
+      "id": 11,
+      "name": "400GM Candy",
+      "sort_order": 6
     }
   ],
   "products": [
@@ -28,8 +38,8 @@
       "category": 5,
       "price": 40,
       "cartoon_size": 40,
-      "image": "/media/yJTnQwqct.webp",
-      "stock": 10,
+      "image": "/media/QM4fF02sy.webp",
+      "stock": 20,
       "description": "QTY Per Cartoon: 40 Boxes\r\nPackaging Size: 80 Piece/Box\r\nNet Weight: 320G Per Box\r\nMRP: Per Box ₹80\r\nPrice Per Piece: ₹1"
     },
     {
@@ -39,8 +49,8 @@
       "description": "QTY Per Cartoon: 40 Boxes\r\nPackaging Size: 80 Piece/Box\r\nNet Weight: 320G Per Box\r\nMRP: Per Box ₹80\r\nPrice Per Piece: ₹1",
       "price": 40,
       "cartoon_size": 40,
-      "image": "/media/u523s2RGY.png",
-      "stock": 10
+      "image": "/media/lFcWuFNe_.png",
+      "stock": 20
     },
     {
       "id": 13,
@@ -49,8 +59,8 @@
       "description": "QTY Per Cartoon: 40 Boxes\r\nPackaging Size: 80 Piece/Box\r\nNet Weight: 320G Per Box\r\nMRP: Per Box ₹80\r\nPrice Per Piece: ₹1",
       "price": 40,
       "cartoon_size": 40,
-      "image": "/media/McLSZg3V9.png",
-      "stock": 7
+      "image": "/media/ggO6L0Sxq.png",
+      "stock": 20
     },
     {
       "id": 14,
@@ -59,8 +69,38 @@
       "description": "QTY Per Cartoon: 40 Boxes\r\nPackaging Size: 80 Piece/Box\r\nNet Weight: 320G Per Box\r\nMRP: Per Box ₹80\r\nPrice Per Piece: ₹1",
       "price": 40,
       "cartoon_size": 40,
-      "image": "/media/6NPju_UWf.webp",
-      "stock": 7
+      "image": "/media/S1Zyhfl1i.webp",
+      "stock": 20
+    },
+    {
+      "id": 15,
+      "name": "Almond Toffee Box",
+      "category": 8,
+      "description": "QTY Per Cartoon: 36 Boxes\r\nPackaging Size: 100 Piece/Box\r\nNet Weight: 350G Per Box\r\nMRP: Per Box ₹100\r\nPrice Per Piece: ₹1",
+      "price": 48,
+      "cartoon_size": 36,
+      "image": "/media/h-HHK2GGG.webp",
+      "stock": 20
+    },
+    {
+      "id": 16,
+      "name": "Almond Toffee Box",
+      "category": 8,
+      "description": "QTY Per Cartoon: 36 Boxes\r\nPackaging Size: 100 Piece/Box\r\nNet Weight: 350G Per Box\r\nMRP: Per Box ₹100\r\nPrice Per Piece: ₹1",
+      "price": 48,
+      "cartoon_size": 36,
+      "image": "/media/aX2DS__Ja.webp",
+      "stock": 20
+    },
+    {
+      "id": 17,
+      "name": "Butter Toffee Box",
+      "category": 8,
+      "description": "QTY Per Cartoon: 36 Boxes\r\nPackaging Size: 100 Piece/Box\r\nNet Weight: 350G Per Box\r\nMRP: Per Box ₹100\r\nPrice Per Piece: ₹1",
+      "price": 48,
+      "cartoon_size": 36,
+      "image": "/media/5j_LX9UU-.webp",
+      "stock": 20
     },
     {
       "id": 18,
@@ -69,167 +109,247 @@
       "description": "QTY Per Cartoon: 36 Boxes\r\nPackaging Size: 100 Piece/Box\r\nNet Weight: 350G Per Box\r\nMRP: Per Box ₹100\r\nPrice Per Piece: ₹1",
       "price": 48,
       "cartoon_size": 36,
-      "image": "/media/lr6R1oiDG.webp",
+      "image": "/media/4eBn2r7Hh.webp",
       "stock": 20
     },
     {
       "id": 19,
-      "name": "Kaju Butter Toffee",
-      "category": 8,
-      "description": "QTY Per Cartoon: 36 Boxes\r\nPackaging Size: 100 Piece/Box\r\nNet Weight: 350G Per Box\r\nMRP: Per Box ₹100\r\nPrice Per Piece: ₹1",
-      "price": 48,
-      "cartoon_size": 36,
-      "image": "/media/GhSF3NE0X.webp",
-      "stock": 20
-    },
-    {
-      "id": 20,
       "name": "Fruit Toffee Box",
       "category": 8,
       "description": "QTY Per Cartoon: 36 Boxes\r\nPackaging Size: 100 Piece/Box\r\nNet Weight: 350G Per Box\r\nMRP: Per Box ₹100\r\nPrice Per Piece: ₹1",
       "price": 48,
       "cartoon_size": 36,
-      "image": "/media/YZ1bK9w6M.webp",
-      "stock": 13
+      "image": "/media/i-ZlCfskP.webp",
+      "stock": 20
     },
     {
-      "id": 21,
-      "name": "Almond Toffee Box",
+      "id": 20,
+      "name": "Kaju Butter Toffee Box",
       "category": 8,
       "description": "QTY Per Cartoon: 36 Boxes\r\nPackaging Size: 100 Piece/Box\r\nNet Weight: 350G Per Box\r\nMRP: Per Box ₹100\r\nPrice Per Piece: ₹1",
       "price": 48,
       "cartoon_size": 36,
-      "image": "/media/-GwI_lgWg.webp",
-      "stock": 16
+      "image": "/media/KjitsbBM6.webp",
+      "stock": 20
     },
     {
-      "id": 22,
-      "name": "Jo",
-      "description": "Delicious premium chocolate with rich taste.",
-      "packaging": "Box",
-      "origin": "India",
-      "shape": "Square",
-      "type": "Dark Chocolate",
-      "color": "Brown"
-    },
-    {
-      "id": 23,
+      "id": 21,
       "name": "Pista Toffee Box",
       "category": 8,
       "description": "QTY Per Cartoon: 36 Boxes\r\nPackaging Size: 100 Piece/Box\r\nNet Weight: 350G Per Box\r\nMRP: Per Box ₹100\r\nPrice Per Piece: ₹1",
       "price": 48,
       "cartoon_size": 36,
-      "image": "/media/Rwtdi33jr.webp",
-      "stock": 17
-    },
-    {
-      "id": 24,
-      "name": "Butter Toffee Box",
-      "category": 8,
-      "description": "QTY Per Cartoon: 36 Boxes\r\nPackaging Size: 100 Piece/Box\r\nNet Weight: 350G Per Box\r\nMRP: Per Box ₹100\r\nPrice Per Piece: ₹1",
-      "price": 48,
-      "cartoon_size": 36,
-      "image": "/media/EBv3fq79z.webp",
+      "image": "/media/4EPZwvjbu.webp",
       "stock": 20
     },
     {
-      "id": 25,
-      "name": "Anjeer Toffee Box",
-      "category": 8,
-      "description": "QTY Per Cartoon: 36 Boxes\r\nPackaging Size: 100 Piece/Box\r\nNet Weight: 350G Per Box\r\nMRP: Per Box ₹100\r\nPrice Per Piece: ₹1",
-      "price": 48,
-      "cartoon_size": 36,
-      "image": "/media/cdywFJRF1.webp",
-      "stock": 20
-    },
-    {
-      "id": 26,
-      "name": "Creamy Eclair Toffee",
-      "category": 6,
-      "description": "QTY Per Cartoon: 36 Packet\r\nPackaging Size: 100 Piece/Packet\r\nNet Weight: 350G Per Packet\r\nMRP: Per Box ₹100\r\nPrice Per Piece: ₹1",
-      "price": 50,
-      "cartoon_size": 36,
-      "image": "/media/iVHkVc9KT.webp",
-      "stock": 20
-    },
-    {
-      "id": 27,
+      "id": 22,
       "name": "Cardamon Eclair Toffee",
       "category": 6,
       "description": "QTY Per Cartoon: 36 Packet\r\nPackaging Size: 100 Piece/Packet\r\nNet Weight: 350G Per Packet\r\nMRP: Per Box ₹100\r\nPrice Per Piece: ₹1",
       "price": 50,
       "cartoon_size": 36,
-      "image": "/media/jbNUQokqk.webp",
+      "image": "/media/z0l1kjDU6.webp",
       "stock": 20
     },
     {
-      "id": 28,
-      "name": "Strawberry  Eclair Toffee",
+      "id": 23,
+      "name": "Creamy Eclair Toffee",
       "category": 6,
       "description": "QTY Per Cartoon: 36 Packet\r\nPackaging Size: 100 Piece/Packet\r\nNet Weight: 350G Per Packet\r\nMRP: Per Box ₹100\r\nPrice Per Piece: ₹1",
       "price": 50,
       "cartoon_size": 36,
-      "image": "/media/FzZtU7zOM.webp",
-      "stock": 17
+      "image": "/media/2_-2lLVEK.webp",
+      "stock": 20
     },
     {
-      "id": 29,
-      "name": "Saffron Eclair Toffee",
-      "category": 6,
-      "description": "QTY Per Cartoon: 36 Packet\r\nPackaging Size: 100 Piece/Packet\r\nNet Weight: 350G Per Packet\r\nMRP: Per Box ₹100\r\nPrice Per Piece: ₹1",
-      "price": 50,
-      "cartoon_size": 36,
-      "image": "/media/2hDKdNSU2.webp",
-      "stock": 15
-    },
-    {
-      "id": 30,
+      "id": 24,
       "name": "Eclair Classic Toffee",
       "category": 6,
       "description": "QTY Per Cartoon: 36 Packet\r\nPackaging Size: 100 Piece/Packet\r\nNet Weight: 350G Per Packet\r\nMRP: Per Box ₹100\r\nPrice Per Piece: ₹1",
       "price": 50,
       "cartoon_size": 36,
-      "image": "/media/pL7_-7ofQ.webp",
+      "image": "/media/BQuTXKsKE.webp",
+      "stock": 20
+    },
+    {
+      "id": 25,
+      "name": "Saffron Eclair Toffee",
+      "category": 6,
+      "description": "QTY Per Cartoon: 36 Packet\r\nPackaging Size: 100 Piece/Packet\r\nNet Weight: 350G Per Packet\r\nMRP: Per Box ₹100\r\nPrice Per Piece: ₹1",
+      "price": 50,
+      "cartoon_size": 36,
+      "image": "/media/YAXhBm1m6.webp",
+      "stock": 20
+    },
+    {
+      "id": 26,
+      "name": "Strawberry Eclair Toffee",
+      "category": 6,
+      "description": "QTY Per Cartoon: 36 Packet\r\nPackaging Size: 100 Piece/Packet\r\nNet Weight: 350G Per Packet\r\nMRP: Per Box ₹100\r\nPrice Per Piece: ₹1",
+      "price": 50,
+      "cartoon_size": 36,
+      "image": "/media/XY5_Uysbf.webp",
+      "stock": 20
+    },
+    {
+      "id": 27,
+      "name": "Guava Jelly Blast",
+      "category": 9,
+      "description": "QTY Per Cartoon: 20 Jar\r\nPackaging Size: 150 Piece/Jar\r\nNet Weight: 600G Per Jar\r\nMRP: Per Box ₹150\r\nPrice Per Piece: ₹1",
+      "price": 80,
+      "cartoon_size": 20,
+      "image": "/media/8S-kQd84X.webp",
+      "stock": 20
+    },
+    {
+      "id": 28,
+      "name": "Imli Jelly Blast ",
+      "category": 9,
+      "description": "QTY Per Cartoon: 20 Jar\r\nPackaging Size: 150 Piece/Jar\r\nNet Weight: 600G Per Jar\r\nMRP: Per Box ₹150\r\nPrice Per Piece: ₹1",
+      "price": 80,
+      "cartoon_size": 20,
+      "image": "/media/ZCJs21loT.webp",
+      "stock": 20
+    },
+    {
+      "id": 29,
+      "name": "Melon Jelly Blast",
+      "category": 9,
+      "description": "QTY Per Cartoon: 20 Jar\r\nPackaging Size: 150 Piece/Jar\r\nNet Weight: 600G Per Jar\r\nMRP: Per Box ₹150\r\nPrice Per Piece: ₹1",
+      "price": 80,
+      "cartoon_size": 20,
+      "image": "/media/-jLyo3d8y.webp",
+      "stock": 20
+    },
+    {
+      "id": 30,
+      "name": "Strawberry Jelly Blast",
+      "category": 9,
+      "description": "QTY Per Cartoon: 20 Jar\r\nPackaging Size: 150 Piece/Jar\r\nNet Weight: 600G Per Jar\r\nMRP: Per Box ₹150\r\nPrice Per Piece: ₹1",
+      "price": 80,
+      "cartoon_size": 20,
+      "image": "/media/NyHQms7LE.webp",
       "stock": 20
     },
     {
       "id": 31,
-      "name": "Imli Jelly Blast",
-      "category": 11,
-      "description": "QTY Per Cartoon: 20 Jar\r\nPackaging Size: 150 Piece/Jar\r\nNet Weight: 600G Per Jar\r\nMRP: Per Box ₹150\r\nPrice Per Piece: ₹1",
-      "price": 80,
-      "cartoon_size": 20,
-      "image": "/media/s0XqubH4d.webp",
+      "name": "Honey Eclair Toffee",
+      "category": 10,
+      "description": "QTY Per Cartoon: 48 Box\r\nPackaging Size: 20 Piece/Box\r\nNet Weight: 140G Per Box\r\nMRP: Per Box ₹70\r\nPrice Per Piece: ₹2",
+      "price": 50,
+      "cartoon_size": 48,
+      "image": "/media/oainSchHi.webp",
       "stock": 20
     },
     {
       "id": 32,
-      "name": "Guava Jelly Blast ",
-      "category": 11,
-      "description": "QTY Per Cartoon: 20 Jar\r\nPackaging Size: 150 Piece/Jar\r\nNet Weight: 600G Per Jar\r\nMRP: Per Box ₹150\r\nPrice Per Piece: ₹1",
-      "price": 80,
-      "cartoon_size": 20,
-      "image": "/media/4o0YBbRpG.webp",
-      "stock": 17
+      "name": "Coconut Eclair Toffee",
+      "category": 10,
+      "description": "QTY Per Cartoon: 48 Box\r\nPackaging Size: 20 Piece/Box\r\nNet Weight: 140G Per Box\r\nMRP: Per Box ₹70\r\nPrice Per Piece: ₹2",
+      "price": 50,
+      "cartoon_size": 48,
+      "image": "/media/WP4fHfE0a.webp",
+      "stock": 20
     },
     {
       "id": 33,
-      "name": "Melon Jelly Blast",
-      "category": 11,
-      "description": "QTY Per Cartoon: 20 Jar\r\nPackaging Size: 150 Piece/Jar\r\nNet Weight: 600G Per Jar\r\nMRP: Per Box ₹150\r\nPrice Per Piece: ₹1",
-      "price": 80,
-      "cartoon_size": 20,
-      "image": "/media/-2hmSloil.webp",
-      "stock": 17
+      "name": "Milk Eclair Toffee",
+      "category": 10,
+      "description": "QTY Per Cartoon: 48 Box\r\nPackaging Size: 20 Piece/Box\r\nNet Weight: 140G Per Box\r\nMRP: Per Box ₹70\r\nPrice Per Piece: ₹2",
+      "price": 50,
+      "cartoon_size": 48,
+      "image": "/media/5q7rQskcJ.webp",
+      "stock": 20
     },
     {
       "id": 34,
-      "name": "Strawberry Jelly Blast",
+      "name": "Chocolate Eclair Toffee",
+      "category": 10,
+      "description": "QTY Per Cartoon: 48 Box\r\nPackaging Size: 20 Piece/Box\r\nNet Weight: 140G Per Box\r\nMRP: Per Box ₹70\r\nPrice Per Piece: ₹2",
+      "price": 50,
+      "cartoon_size": 48,
+      "image": "/media/fcYA6hzTn.png",
+      "stock": 20
+    },
+    {
+      "id": 35,
+      "name": "Lemon Flavour Candy",
       "category": 11,
-      "description": "QTY Per Cartoon: 20 Jar\r\nPackaging Size: 150 Piece/Jar\r\nNet Weight: 600G Per Jar\r\nMRP: Per Box ₹150\r\nPrice Per Piece: ₹1",
-      "price": 80,
+      "description": "QTY Per Cartoon: 20 Packet\r\nPackaging Size: 100 Piece/Packet\r\nNet Weight: 400G Per Packet\r\nMRP: Per Packet ₹100\r\nPrice Per Piece: ₹1",
+      "price": 70,
       "cartoon_size": 20,
-      "image": "/media/jg61zKuQB.webp",
+      "image": "/media/k6QaPGaBZ.webp",
+      "stock": 20
+    },
+    {
+      "id": 36,
+      "name": "Orange Flavour Candy",
+      "category": 11,
+      "description": "QTY Per Cartoon: 20 Packet\r\nPackaging Size: 100 Piece/Packet\r\nNet Weight: 400G Per Packet\r\nMRP: Per Packet ₹100\r\nPrice Per Piece: ₹1",
+      "price": 70,
+      "cartoon_size": 20,
+      "image": "/media/tLeucZuiU.webp",
+      "stock": 20
+    },
+    {
+      "id": 37,
+      "name": "Imli Flavour Candy",
+      "category": 11,
+      "description": "QTY Per Cartoon: 20 Packet\r\nPackaging Size: 100 Piece/Packet\r\nNet Weight: 400G Per Packet\r\nMRP: Per Packet ₹100\r\nPrice Per Piece: ₹1",
+      "price": 70,
+      "cartoon_size": 20,
+      "image": "/media/J3VBDWc0C.webp",
+      "stock": 20
+    },
+    {
+      "id": 38,
+      "name": "Melon Flavour Candy",
+      "category": 11,
+      "description": "QTY Per Cartoon: 20 Packet\r\nPackaging Size: 100 Piece/Packet\r\nNet Weight: 400G Per Packet\r\nMRP: Per Packet ₹100\r\nPrice Per Piece: ₹1",
+      "price": 70,
+      "cartoon_size": 20,
+      "image": "/media/ifTjgQxbu.webp",
+      "stock": 20
+    },
+    {
+      "id": 39,
+      "name": "Watermelon Flavour Candy",
+      "category": 11,
+      "description": "QTY Per Cartoon: 20 Packet\r\nPackaging Size: 100 Piece/Packet\r\nNet Weight: 400G Per Packet\r\nMRP: Per Packet ₹100\r\nPrice Per Piece: ₹1",
+      "price": 70,
+      "cartoon_size": 20,
+      "image": "/media/1zQoG6Lsw.webp",
+      "stock": 20
+    },
+    {
+      "id": 40,
+      "name": "Jaljeera Flavour Candy",
+      "category": 11,
+      "description": "QTY Per Cartoon: 20 Packet\r\nPackaging Size: 100 Piece/Packet\r\nNet Weight: 400G Per Packet\r\nMRP: Per Packet ₹100\r\nPrice Per Piece: ₹1",
+      "price": 70,
+      "cartoon_size": 20,
+      "image": "/media/-2O3h8w3I.webp",
+      "stock": 20
+    },
+    {
+      "id": 41,
+      "name": "Green Apple Flavour Candy",
+      "category": 11,
+      "description": "QTY Per Cartoon: 20 Packet\r\nPackaging Size: 100 Piece/Packet\r\nNet Weight: 400G Per Packet\r\nMRP: Per Packet ₹100\r\nPrice Per Piece: ₹1",
+      "price": 70,
+      "cartoon_size": 20,
+      "image": "/media/LTEdMsDyG.webp",
+      "stock": 20
+    },
+    {
+      "id": 42,
+      "name": "Mango Flavour Candy",
+      "category": 11,
+      "description": "QTY Per Cartoon: 20 Packet\r\nPackaging Size: 100 Piece/Packet\r\nNet Weight: 400G Per Packet\r\nMRP: Per Packet ₹100\r\nPrice Per Piece: ₹1",
+      "price": 70,
+      "cartoon_size": 20,
+      "image": "/media/9Lcbx-JQC.webp",
       "stock": 20
     }
   ],
@@ -1296,144 +1416,6 @@
       "subtotal": 4000,
       "total": 4000,
       "date": "2026-01-20T07:47:48.754Z",
-      "status": "Pending"
-    },
-    {
-      "id": "oQgL1q3Bw",
-      "customer": "Nitin",
-      "phone": "9712155265",
-      "address": {
-        "pincode": "403001",
-        "city": "North Goa",
-        "state": "Goa"
-      },
-      "items": [
-        {
-          "productId": 21,
-          "categoryId": 8,
-          "image": "/media/-GwI_lgWg.webp",
-          "qty": 4,
-          "cartoon_size": 36,
-          "price": 48,
-          "totalPieces": 144,
-          "total": 6912
-        },
-        {
-          "productId": 29,
-          "categoryId": 6,
-          "image": "/media/2hDKdNSU2.webp",
-          "qty": 5,
-          "cartoon_size": 36,
-          "price": 50,
-          "totalPieces": 180,
-          "total": 9000
-        },
-        {
-          "productId": 13,
-          "categoryId": 5,
-          "image": "/media/McLSZg3V9.png",
-          "qty": 3,
-          "cartoon_size": 40,
-          "price": 40,
-          "totalPieces": 120,
-          "total": 4800
-        },
-        {
-          "productId": 33,
-          "categoryId": 11,
-          "image": "/media/-2hmSloil.webp",
-          "qty": 3,
-          "cartoon_size": 20,
-          "price": 80,
-          "totalPieces": 60,
-          "total": 4800
-        }
-      ],
-      "subtotal": 25512,
-      "total": 25512,
-      "date": "2026-01-23T05:23:34.101Z",
-      "status": "Pending"
-    },
-    {
-      "id": "4NAorHhH4",
-      "customer": "Mahavir Sales",
-      "phone": "9712155265",
-      "address": {
-        "pincode": "388001",
-        "city": "Anand",
-        "state": "Gujarat"
-      },
-      "items": [
-        {
-          "productId": 20,
-          "categoryId": 8,
-          "image": "/media/YZ1bK9w6M.webp",
-          "qty": 7,
-          "cartoon_size": 36,
-          "price": 48,
-          "totalPieces": 252,
-          "total": 12096
-        }
-      ],
-      "subtotal": 12096,
-      "total": 12096,
-      "date": "2026-01-23T08:23:45.205Z",
-      "status": "Pending"
-    },
-    {
-      "id": "jUAAPzFxu",
-      "customer": "Nitin",
-      "phone": "9713817272",
-      "address": {
-        "pincode": "388001",
-        "city": "Anand",
-        "state": "Gujarat"
-      },
-      "items": [
-        {
-          "productId": 23,
-          "categoryId": 8,
-          "image": "/media/Rwtdi33jr.webp",
-          "qty": 3,
-          "cartoon_size": 36,
-          "price": 48,
-          "totalPieces": 108,
-          "total": 5184
-        },
-        {
-          "productId": 28,
-          "categoryId": 6,
-          "image": "/media/FzZtU7zOM.webp",
-          "qty": 3,
-          "cartoon_size": 36,
-          "price": 50,
-          "totalPieces": 108,
-          "total": 5400
-        },
-        {
-          "productId": 14,
-          "categoryId": 5,
-          "image": "/media/6NPju_UWf.webp",
-          "qty": 3,
-          "cartoon_size": 40,
-          "price": 40,
-          "totalPieces": 120,
-          "total": 4800
-        },
-        {
-          "productId": 32,
-          "categoryId": 11,
-          "image": "/media/4o0YBbRpG.webp",
-          "qty": 3,
-          "cartoon_size": 20,
-          "price": 80,
-          "totalPieces": 60,
-          "total": 4800
-        }
-      ],
-      "subtotal": 20184,
-      "total": 20184,
-      "date": "2026-01-23T08:25:38.390Z",
       "status": "Pending"
     }
   ]
